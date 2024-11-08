@@ -10,6 +10,6 @@ if meny == "2":
     print("Nu avslutas programmet...")
     sys.exit()
 elif meny == "1":
-    print("heheh")   
+    print("hohoho")   
 
 
