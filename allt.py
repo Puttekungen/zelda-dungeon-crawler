@@ -1,2 +1,2 @@
-from trap import traps, trap
-from shop import shop
+from func.trap import traps, trap
+from func.shop import shop
