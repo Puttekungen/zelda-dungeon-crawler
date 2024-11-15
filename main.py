@@ -19,6 +19,9 @@ if meny == 2:
     sys.exit()
 elif meny == 1:
     print("Entering the dungeon...")   
+else:
+    print("Invalid input")
+
 
 class Player:
 
@@ -39,10 +42,10 @@ print("begin")
 
 c = choices("Open door","Inventory","Exit")
 
-if c = 1:
+if c == 1:
     csd
-elif c = 2:
+elif c == 2:
     combat()
-elif c = 3:
+elif c == 3:
     print("Exiting game...")
     sys.exit()
