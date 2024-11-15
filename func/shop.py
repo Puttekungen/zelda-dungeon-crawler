@@ -19,13 +19,13 @@ def buy_item(self, choice):
     if choice in self.items:
         price =     self.items[choice]
 
-        if budget >= price
-        print(f"You bought {choice} for {price} $!")
-        print(f"You feel that your money bag got lighter,you got this much left: {budget}")
+        if budget >= price:
+            print(f"You bought {choice} for {price} $!")
+            print(f"You feel that your money bag got lighter,you got this much left: {budget}")
 
     else:
         print("You dont have enough money!")
 
     else: 
-         print 
+        print("") 
 

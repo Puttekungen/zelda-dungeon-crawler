@@ -19,8 +19,7 @@ if meny == 2:
     sys.exit()
 elif meny == 1:
     print("Entering the dungeon...")   
-else:
-    print("Invalid input")
+
 
 
 class Player:
