@@ -2,34 +2,40 @@ import random
 
 class Player:
 
-    def __init__(self, strength, hp, lvl): 
+    def __init__(self, strength, hp, lvl, gold): 
         self.strength = strength
         self.hp = hp
         self.lvl = lvl
+        self.gold = gold
 
 
 def combat(player):
-    if player.lvl <= 9:
+    if player.lvl >= 9:
         enemy_strength = random.randint(9,14)
-    elif player.lvl <= 6:
+        gold = random.randint(2,6)
+    elif player.lvl >= 6:
         enemy_strength = random.randint(7,10)
-    elif player.lvl <= 3:
+        gold = random.randint(2,3)
+    elif player.lvl >= 3:
         enemy_strength = random.randint(5,8)
+        gold = random.randint(1,3)
+    else:
+        enemy_strength = random.randint(2,4)
+        gold = random.randint(1,2)
    
-    
-    damage = random.randint(2, 4)
 
-   
 
-    if player.strength > enemy_strength:
-        print(f"The monster won, you took {damage} damage")
-        player.hp -= damage
-    elif player.strength < enemy_strength:
-        print("nah") 
+    if player.strength < enemy_strength:
+        print(f"The monster won, you took {enemy_strength} damage")
+        player.hp -= enemy_strength
+    elif player.strength > enemy_strength:
+        print(f"You won, you found {gold} gold in the monster remains") 
+        player.gold += gold
     elif player.strength == enemy_strength:
-        print("monster won")
+        print("Your fight ended in a tie")
     
-player = Player(10, 10, 2)
+player = Player(10, 10, 9, 4)
 combat(player)
 
 print(player.hp)
+print(player.gold)

@@ -11,7 +11,7 @@ budget = 100
 def display_items(self):
     print("\n---Welcomme to the shop ---")
     print("Here is what you can choose from:")
-    for item, price in self.items.items():
+    for item, price in self.items():
          print(f"{item}: {price} $")
          print(f"\nYour budget: {budget} $")
         

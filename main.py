@@ -24,7 +24,7 @@ elif meny == 1:
 
 class Player:
 
-    def __init__(self, namn, strength):
+    def __init__(self, name, strength):
         self.name = name
         self.strength = strength
 
@@ -33,18 +33,28 @@ class Player:
 
 print("intro")
 
-name = input("Choose name...")
+name = input("Choose name... ")
 
 print(name)
 
 print("begin")
 
-c = choices("Open door","Inventory","Exit")
+c = input("1.Open door\n2.Inventory\n3.Exit game\n\n")
 
-if c == 1:
+if c == "1":
     csd
-elif c == 2:
-    combat()
-elif c == 3:
-    print("Exiting game...")
-    sys.exit()
+elif c == "2":
+    inventory()
+elif c == "3":
+    end = input("Are you sure? Y/N ")
+    lower = end.lower()
+    if lower == "y":
+        print("Exiting game...")
+        sys.exit()
+    elif lower == "n":
+        print("Returning to game...")
+
+    else:
+        print("Invalid input")
+else:
+    print("Invalid input")
