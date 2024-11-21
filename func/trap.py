@@ -6,5 +6,3 @@ def trap():
     damage = rand.randint(1,5)
     random_trap = rand.choice(traps)
     print(f"{random_trap} {damage} damage")
-
-trap()

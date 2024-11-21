@@ -1,12 +1,5 @@
 import random
-
-class Player:
-
-    def __init__(self, strength, hp, lvl, gold): 
-        self.strength = strength
-        self.hp = hp
-        self.lvl = lvl
-        self.gold = gold
+from classes import Player
 
 
 def combat(player):
@@ -34,7 +27,7 @@ def combat(player):
     elif player.strength == enemy_strength:
         print("Your fight ended in a tie")
     
-player = Player(10, 10, 9, 4)
+player = Player(10, 20, 9, 4)
 combat(player)
 
 print(player.hp)
