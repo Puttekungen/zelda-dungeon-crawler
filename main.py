@@ -3,6 +3,7 @@ import random
 import sys
 from func.classes import classes
 
+
 meny = classes.user_input("1.Start game\n2.Exit",["1","2"])
 if meny == 2:
     print("Exiting game...")
