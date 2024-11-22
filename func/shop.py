@@ -47,3 +47,4 @@ def main():
         shop.buy_item(choice)  # Försök att köpa det valda föremålet
 
 
+main() 
