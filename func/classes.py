@@ -10,9 +10,10 @@ class Player:
 
 
 
-def user_input(src, valid_input=None):
+def user_input(text, valid_input=None):
     while True:
-        user_text=input(f"{src}\n")
+
+        user_text=input(f"{text}\n")
 
         if user_text != "":
             if valid_input is None:
@@ -21,5 +22,3 @@ def user_input(src, valid_input=None):
             for i in range(len(valid_input)):
                 if valid_input[i].lower()==user_text:
                     return user_text
-                
-        print(f"Enter a valid input.\n")
