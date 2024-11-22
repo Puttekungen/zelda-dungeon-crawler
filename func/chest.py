@@ -32,16 +32,21 @@ def mimic(player):
 
 def chest():
     global Sword
+    global Strength_Potion
 
     item_num = random.randint(1,5)
     if item_num >= 4: 
         str = random.randint(3,5)
-        print(f"{name} found a +{str} strength potion")
+        print(f"{name} found a strength potion +{str}")
     elif item_num >= 2:
-        health = ("Health Potion")
+        health = random.randint(3,5)
+        print(f"{name} found a health potion +{health}")
+
+        
     elif item_num >= 1:
         if player.lvl >= 9:
             power = random.randint(9,14)
+            print(power)
         elif player.lvl >= 6:
             power = random.randint(7,10)
         elif player.lvl >= 3:
@@ -49,9 +54,11 @@ def chest():
         else:
             power = random.randint(2,4)
 
+        Sword -= power
         Sword += power
 
         print(f"Sword power {Sword}")
+        return Sword
  
 
 def type():
