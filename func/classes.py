@@ -7,9 +7,6 @@ class Player:
         self.gold = gold
         self.name = ""
 
-
-
-
 def user_input(text, valid_input=None):
     while True:
 
@@ -22,3 +19,6 @@ def user_input(text, valid_input=None):
             for i in range(len(valid_input)):
                 if valid_input[i].lower()==user_text:
                     return user_text
+                
+
+player = Player(100,100,0,0)

@@ -17,9 +17,9 @@ elif meny == "1":
 
 print("intro")
 
-name = classes.user_input("Choose name... ")
+classes.player.name = classes.user_input("Choose name... ")
 
-print(name)
+print(classes.player.name)
 
 print("begin")
 
