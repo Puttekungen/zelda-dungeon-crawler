@@ -1,9 +1,9 @@
 from func.trap import traps, trap
 from func.shop import Shop
 from func.combat import *
-from func.inventory import *
-from func.chest import *
-from func.classes import *
+import func.inventory as inventory
+import func.chest as chest
+import func.classes as classes
 
 import random
 import sys
