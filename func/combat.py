@@ -2,6 +2,7 @@ import random
 from classes import *
 
 
+
 def combat(player):
     if player.lvl >= 8:
         enemy_strength = random.randint(9,14)
