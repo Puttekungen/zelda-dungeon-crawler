@@ -52,9 +52,9 @@ def get_user_input(text, valid_input):
             if str(valid_input[i]).lower()==user_input:
                 return user_input
 
-while True:
-    print_intro()
+print_intro()
 
+while True:
     user_choice = get_user_input("1.Open door\n2.Inventory\n3.Exit game",["1","2","3"])
     
     if user_choice == "1":
