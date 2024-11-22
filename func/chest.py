@@ -1,15 +1,14 @@
-from classes import Player
+from classes import *
 import random
 
-player = Player(10, 20, 9, 4)
 Sword = 5
 name = "ooga"
 
 def mimic(player):
-    if player.lvl >= 9:
+    if player.lvl >= 8:
         mimic_str = random.randint(9,14)
         gold = random.randint(2,6)
-    elif player.lvl >= 6:
+    elif player.lvl >= 5:
         mimic_str = random.randint(7,10)
         gold = random.randint(2,3)
     elif player.lvl >= 3:
@@ -26,6 +25,8 @@ def mimic(player):
     elif player.strength > mimic_str:
         print(f"{name} won, {name} found {gold} gold inside the defeated mimic") 
         player.gold += gold
+        player.lvl += 1
+        print(f"{name} leveled up, +1 lvl")
     elif player.strength == mimic_str:
         print("Your fight ended in a tie")
     
@@ -44,21 +45,19 @@ def chest():
 
         
     elif item_num >= 1:
-        if player.lvl >= 9:
+        if player.lvl >= 8:
             power = random.randint(9,14)
             print(power)
-        elif player.lvl >= 6:
+        elif player.lvl >= 5:
             power = random.randint(7,10)
         elif player.lvl >= 3:
             power = random.randint(5,8)
         else:
             power = random.randint(2,4)
 
-        Sword -= power
+        Sword -= Sword
         Sword += power
-
         print(f"Sword power {Sword}")
-        return Sword
  
 
 def type():
