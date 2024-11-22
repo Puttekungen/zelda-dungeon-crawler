@@ -4,9 +4,23 @@ import func.combat as combat
 import func.inventory as inventory
 import func.chest as chest
 import func.classes as classes
-
 import random
 import sys
+
+def random_room():
+    #33% combat 25% shop 15% chest 10%trap
+    rand=random.random()
+
+    if rand<0.33:
+        combat.combat()
+    elif rand<0.66:
+        shop.shop()
+    elif rand<=0.75:
+        chest.chest()
+    elif rand<=1:
+        trap.trap()
+
+
 
 meny = classes.user_input("1.Start game\n2.Exit",["1","2"])
 if meny == "2":
@@ -23,23 +37,18 @@ print(classes.player.name)
 
 print("begin")
 
-choice = classes.user_input("1.Open door\n2.Inventory\n3.Exit game\n\n",["1","2","3"])
 
-if choice == "1":
-    csd
-elif choice == "2":
-    inventory()
-elif choice == "3":
-    end = input("Are you sure? Y/N ")
-    lower = end.lower()
-    if lower == "y":
-        print("Exiting game...")
-        sys.exit()
-    elif lower == "n":
-        print("Returning to game...")
+while True:
+    choice = classes.user_input("1.Open door\n2.Inventory\n3.Exit game\n",["1","2","3"])
 
-    else:
-        print("Invalid input")
-else:
-    print("Invalid input")
-
+    if choice == "1":
+        random_room()
+    elif choice == "2":
+        inventory.inventory()
+    elif choice == "3":
+        end = classes.user_input("Are you sure? Y/N ",["Y","N"])
+        if end == "y":
+            print("Exiting game...")
+            sys.exit()
+        elif end == "n":
+            print("Returning to game...")
