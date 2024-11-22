@@ -1,14 +1,18 @@
-
+import func.trap as trap
+import func.shop as shop
+import func.combat as combat
+import func.inventory as inventory
+import func.chest as chest
 import func.classes as classes
 
 import random
 import sys
 
 meny = classes.user_input("1.Start game\n2.Exit",["1","2"])
-if meny == 2:
+if meny == "2":
     print("Exiting game...")
     sys.exit()
-elif meny == 1:
+elif meny == "1":
     print("Entering the dungeon...")   
 
 print("intro")
