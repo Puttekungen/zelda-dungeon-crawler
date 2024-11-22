@@ -23,13 +23,13 @@ print(name)
 
 print("begin")
 
-c = user_input("1.Open door\n2.Inventory\n3.Exit game\n\n",["1","2","3"])
+choice = user_input("1.Open door\n2.Inventory\n3.Exit game\n\n",["1","2","3"])
 
-if c == "1":
+if choice == "1":
     csd
-elif c == "2":
+elif choice == "2":
     inventory()
-elif c == "3":
+elif choice == "3":
     end = input("Are you sure? Y/N ")
     lower = end.lower()
     if lower == "y":
