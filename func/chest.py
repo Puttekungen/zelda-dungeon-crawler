@@ -1,8 +1,9 @@
 from classes import Player
-
 import random
 
 player = Player(10, 20, 9, 4)
+Sword = 5
+name = "ooga"
 
 def mimic(player):
     if player.lvl >= 9:
@@ -28,12 +29,30 @@ def mimic(player):
     elif player.strength == mimic_str:
         print("Your fight ended in a tie")
     
-    
+
 def chest():
-    items = ["Health Potion", "Strength Potion", "Weapon"]
-    item = random.choice(items)
-    print(item)
-    
+    global Sword
+
+    item_num = random.randint(1,5)
+    if item_num >= 4: 
+        str = random.randint(3,5)
+        print(f"{name} found a +{str} strength potion")
+    elif item_num >= 2:
+        health = ("Health Potion")
+    elif item_num >= 1:
+        if player.lvl >= 9:
+            power = random.randint(9,14)
+        elif player.lvl >= 6:
+            power = random.randint(7,10)
+        elif player.lvl >= 3:
+            power = random.randint(5,8)
+        else:
+            power = random.randint(2,4)
+
+        Sword += power
+
+        print(f"Sword power {Sword}")
+ 
 
 def type():
     typ = random.randint(1,5)
@@ -44,6 +63,5 @@ def type():
         chest()
 
 type()
-
 print(player.hp)
 print(player.lvl)
