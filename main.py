@@ -1,6 +1,6 @@
 from func.trap import traps, trap
-from func.shop import Shop
-from func.combat import *
+import func.shop as shop
+import func.combat as combat
 import func.inventory as inventory
 import func.chest as chest
 import func.classes as classes
