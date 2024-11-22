@@ -7,10 +7,6 @@ import func.classes
 
 import random
 import sys
-<<<<<<< HEAD
-from func.classes import *
-=======
->>>>>>> 1df6e6bc9aff7dcc0d7cb2fb8fdeeb4d61d22920
 
 meny = ("1.Start game\n2.Exit",["1","2"])
 if meny == 2:
