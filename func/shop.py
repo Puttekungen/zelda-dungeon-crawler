@@ -2,8 +2,8 @@
 import random  
 
 class Shop:  # Definierar en klass som heter shop
-    def __init__(self):  # Konstruktor som körs när ett Shop-objekt skapas
-        self.items = {  # Ordbok som lagrar föremål som nycklar och deras priser som värden
+    def __init__(self):  
+        self.items = {  
             "strength potion": 10,
             "healing potion": 10,
             "weapon": 25,
