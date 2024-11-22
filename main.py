@@ -17,13 +17,13 @@ elif meny == 1:
 
 print("intro")
 
-name = user_input("Choose name... ")
+name = classes.user_input("Choose name... ")
 
 print(name)
 
 print("begin")
 
-choice = user_input("1.Open door\n2.Inventory\n3.Exit game\n\n",["1","2","3"])
+choice = classes.user_input("1.Open door\n2.Inventory\n3.Exit game\n\n",["1","2","3"])
 
 if choice == "1":
     csd
