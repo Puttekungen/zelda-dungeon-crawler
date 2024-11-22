@@ -1,4 +1,4 @@
-from classes import Player
+import func.classes as classes
 import random
 
 player = Player(10, 20, 9, 4)

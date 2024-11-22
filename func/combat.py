@@ -1,5 +1,5 @@
 import random
-from classes import Player
+import func.classes as classes
 
 
 def combat(player):
