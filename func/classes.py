@@ -1,5 +1,9 @@
 class Player:
 
+    inventory = {
+    "fist": 0
+}
+
     def __init__(self, strength, hp, lvl, gold): 
         self.strength = strength
         self.hp = hp
@@ -7,5 +11,3 @@ class Player:
         self.gold = gold
         self.name = ""
                 
-
-player = Player(100,100,0,0)

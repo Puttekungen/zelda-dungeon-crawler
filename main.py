@@ -25,7 +25,7 @@ def random_room():
     elif rand<=1:
         trap.trap()
 
-def print_intro():
+def print_intro(player):
     print("DUNGEON CRAWLER")
 
     print("\n")
@@ -38,8 +38,13 @@ def print_intro():
         print("Entering the dungeon...")   
 
     print("intro")
-    classes.player.name = input("Choose name... ")
+    
+    player = classes.Player(100,100,0,0)
+    
+    player.name = input("Choose name... ")
+    
     print(classes.player.name)
+    
     print("begin")
 
 def get_user_input(text, valid_input):
@@ -52,7 +57,10 @@ def get_user_input(text, valid_input):
             if str(valid_input[i]).lower()==user_input:
                 return user_input
 
-print_intro()
+
+player = None
+
+print_intro(player)
 
 while True:
     user_choice = get_user_input("1.Open door\n2.Inventory\n3.Exit game",["1","2","3"])
