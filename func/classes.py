@@ -1,7 +1,8 @@
 class Player:
 
     inventory = {
-    "fist": 0
+    "fist": 0,
+
 }
 
     def __init__(self, strength, hp, lvl, gold): 
@@ -10,4 +11,7 @@ class Player:
         self.lvl = lvl
         self.gold = gold
         self.name = ""
+        self.inventory = {"fist": {"type":"weapon","strength":100}}
                 
+    
+
