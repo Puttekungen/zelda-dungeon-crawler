@@ -1,8 +1,8 @@
-from classes import *
+import func.classes as classes
 import random
 
+
 Sword = 5
-name = "ooga"
 
 def mimic(player):
     if player.lvl >= 8:
@@ -20,30 +20,34 @@ def mimic(player):
           
           
     if player.strength < mimic_str:
-        print(f"The mimic won, {name} took {mimic_str} damage")
+        print(f"The mimic won, {player.name} took {mimic_str} damage")
         player.hp -= mimic_str
+        resume = input("press 'enter' to continue\n")
     elif player.strength > mimic_str:
-        print(f"{name} won, {name} found {gold} gold inside the defeated mimic") 
+        print(f"{player.name} won, {player.name} found {gold} gold inside the defeated mimic") 
         player.gold += gold
         player.lvl += 1
-        print(f"{name} leveled up, +1 lvl")
+        print(f"{player.name} leveled up, +1 lvl")
+        resume = input("press 'enter' to continue\n")
     elif player.strength == mimic_str:
         print("Your fight ended in a tie")
+        resume = input("press 'enter' to continue\n")
     
 
-def chest():
+def chest(player):
     global Sword
-    global Strength_Potion
 
     item_num = random.randint(1,5)
     if item_num >= 4: 
         str = random.randint(3,5)
-        print(f"{name} found a strength potion +{str}")
+        strength_potion = {f"name": "Strength Potion", "value": {str}}
+        player.inventory.append(strength_potion)
+        print(f"{player.name} found a strength potion +{str}")
     elif item_num >= 2:
         health = random.randint(3,5)
-        print(f"{name} found a health potion +{health}")
-
-        
+        health_potion = {f"name": "Health Potion", "value": {health}}
+        player.inventory.append(health_potion)
+        print(f"{player.name} found a health potion +{health}")
     elif item_num >= 1:
         if player.lvl >= 8:
             power = random.randint(9,14)
@@ -60,14 +64,11 @@ def chest():
         print(f"Sword power {Sword}")
  
 
-def type():
+def type(player):
     typ = random.randint(1,5)
     
     if typ >= 3:
         mimic(player)
     elif typ < 3:
-        chest()
+        chest(player)
 
-type()
-print(player.hp)
-print(player.lvl)

@@ -1,7 +1,5 @@
 import random
-from classes import *
-
-
+from func.classes import *
 
 def combat(player):
     if player.lvl >= 8:
@@ -20,21 +18,17 @@ def combat(player):
 
 
     if player.strength > enemy_strength:
-        print(f"You won, you found {gold} gold in the monster remains") 
+        print(f"{player.name} won, {player.name} found {gold} gold in the monster remains") 
         player.gold += gold
         player.lvl += 1
-        print(f"{name} leveled up, +1 lvl")
-        print("+1 lvl")
+        print(f"{player.name} leveled up, +1 lvl")
+        resume = input("press 'enter' to continue\n")
     elif player.strength == enemy_strength:
         print("Your fight ended in a tie")
-    elif player.strength < enemy_strength:
-        try: # använda potion
+        resume = input("press 'enter' to continue\n")
+    # elif player.strength < enemy_strength:
+    #     if # använda potion
 
-        print(f"The monster won, you took {enemy_strength} damage")
-        player.hp -= enemy_strength
+    #     print(f"The monster won, {player.name} took {enemy_strength} damage")
+    #     player.hp -= enemy_strength
     
-combat(player)
-
-print(player.hp)
-print(player.gold)
-print(player.lvl)

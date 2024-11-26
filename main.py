@@ -1,51 +1,58 @@
-import func.trap as trap
+from func.trap import *
 import func.shop as shop
 import func.combat as combat
 import func.inventory as inventory
 import func.chest as chest
-import func.classes as classes
+import func.stats as stats
+from func.classes import Player
 import random
 import sys
 
-def random_room():
+def random_room(player):
     print("Choose where to go")
     
-    user_input = get_user_input("1.Left\n2.Right\n3.Forward",[1,2,3])
+    user_input = get_user_input("1.Left\n2.Forward\n3.Right\n",[1,2,3])
 
 
-    #33% combat 25% shop 15% chest 10%trap
-    rand=random.random()
+    #64% combat 20% trap 10% shop 10%chest
+    rand = random.random()
 
-    if rand<0.33:
-        combat.combat()
-    elif rand<0.66:
-        shop.shop()
-    elif rand<0.75:
-        chest.type()
-    elif rand<=1:
-        trap.trap()
+    if rand<0.64:
+        combat.combat(player)
+    elif rand<0.80:
+        trap(player)
+    elif rand<0.90:
+        chest.type(player)
+    else:
+        shop.shop(player)
 
-def print_intro(player):
-    print("DUNGEON CRAWLER")
+def print_intro():
+    print("DUNGEON CRAWLER\n\n")
 
-    print("\n")
-
-    meny = get_user_input("1.Start game\n2.Exit",["1","2"])
+    meny = get_user_input("1.Start game\n2.Exit\n",["1","2"])
     if meny == "2":
         print("Exiting game...")
         sys.exit()
     elif meny == "1":
         print("Entering the dungeon...")   
 
-    print("intro")
+    while True:
     
-    player = classes.Player(100,100,0,0)
-    
-    player.name = input("Choose name... ")
-    
-    print(classes.player.name)
-    
-    print("begin")
+        name = input("Choose your name... ")
+        global player
+        player = Player(10, 20, 2, 5, name)
+        
+        while True:
+            sure = input(f"You have entered '{player.name}', is this okay? [Y/N] ")
+            if sure.lower() == "y":
+                print("Entering game...\n")
+                return player
+            elif sure.lower() == "n":
+                print("Choose again\n")
+                break
+            else:
+                print("Invalid input")
+
 
 def get_user_input(text, valid_input):
     while True:
@@ -58,20 +65,23 @@ def get_user_input(text, valid_input):
                 return user_input
 
 
-player = None
 
-print_intro(player)
+player = print_intro()
 
 while True:
-    user_choice = get_user_input("1.Open door\n2.Inventory\n3.Exit game",["1","2","3"])
+    user_choice = get_user_input("1.Open door\n2.Inventory\n3.Stats\n4.Exit game\n",["1","2","3","4"])
+    print("")
     
     if user_choice == "1":
-        random_room()
+        random_room(player)
 
     elif user_choice == "2":
         inventory.inventory()
 
     elif user_choice == "3":
+        stats.stats(player)
+
+    elif user_choice == "4":
         user_choice = get_user_input("Are you sure? Y/N",["Y","N"])
 
         if user_choice == "y":
