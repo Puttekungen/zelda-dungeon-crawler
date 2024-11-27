@@ -26,7 +26,7 @@ def random_room(player):
     else:
         shop.shop(player)
 
-def print_intro():
+def print_intro(player):
     print("DUNGEON CRAWLER\n\n")
 
     meny = get_user_input("1.Start game\n2.Exit\n",["1","2"])
@@ -39,7 +39,7 @@ def print_intro():
     while True:
     
         name = input("Choose your name... ")
-        global player
+
         player = Player(10, 20, 2, 5, name)
         
         while True:
@@ -66,7 +66,9 @@ def get_user_input(text, valid_input):
 
 
 
-player = print_intro()
+global player = Player()
+
+print_intro()
 
 while True:
     user_choice = get_user_input("1.Open door\n2.Inventory\n3.Stats\n4.Exit game\n",["1","2","3","4"])

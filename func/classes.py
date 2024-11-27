@@ -1,4 +1,16 @@
 class Player:
+
+    available_items = {
+        "fist": {
+            "type": "weapon",
+            "strength": 100
+        },
+        "sword": {
+        "type": "weapon",
+        "strength": 100
+        },
+    }
+
     def __init__(self, strength, hp, lvl, gold, name): 
         self.strength = strength
         self.hp = hp
@@ -8,11 +20,16 @@ class Player:
         self.inventory = {"fist": {"type":"weapon","strength":100}}
 
     inventory = {
-    "fist": 0,
+        "fist": {
+            "type": "weapon",
+            "strength": 100
+        },
+    }
 
+class Monster:
+    all_monsters = {
+    "fist": {
+        "hp": 100,
+        "strength": 100
+    },
 }
-
-
-                
-    
-
