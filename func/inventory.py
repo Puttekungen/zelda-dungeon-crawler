@@ -1,7 +1,3 @@
-
-
-
-
 def inventory(player):
 # Loop through inventory and print each item with its type and strength
     print(f"{player.name}'s inventory:\n")

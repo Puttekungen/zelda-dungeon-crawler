@@ -1,6 +1,6 @@
 from func.trap import *
 import func.shop as shop
-import func.combat as combat
+import func.combat as combat1
 import func.inventory as inventory
 import func.chest as chest
 import func.stats as stats
@@ -8,10 +8,19 @@ from func.classes import Player
 import random
 import sys
 
+def get_user_input(text, valid_input):
+    while True:
+        user_input=input(f"{text}\n")
+            
+        for i in range(len(valid_input)):
+            if str(valid_input[i]).lower()==user_input:
+                return user_input
+        print("Invalid input")
+
 def random_room(player):
     print("Choose where to go")
     
-    user_input = get_user_input("1.Left\n2.Forward\n3.Right\n",[1,2,3])
+    get_user_input("1.Left\n2.Forward\n3.Right\n",[1,2,3])
 
 
     #64% combat 20% trap 10% shop 10%chest
@@ -54,21 +63,10 @@ def print_intro(player):
                 print("Invalid input")
 
 
-def get_user_input(text, valid_input):
-    while True:
 
-        user_input=input(f"{text}\n")
-            
-        for i in range(len(valid_input)):
+player = None
 
-            if str(valid_input[i]).lower()==user_input:
-                return user_input
-
-
-
-global player = Player()
-
-print_intro()
+print_intro(player)
 
 while True:
     user_choice = get_user_input("1.Open door\n2.Inventory\n3.Stats\n4.Exit game\n",["1","2","3","4"])
@@ -78,7 +76,7 @@ while True:
         random_room(player)
 
     elif user_choice == "2":
-        inventory.inventory()
+        inventory.inventory(player)
 
     elif user_choice == "3":
         stats.stats(player)
