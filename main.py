@@ -1,10 +1,11 @@
 from func.trap import *
 import func.shop as shop
-import func.combat as combat1
+import func.combat as combat
 import func.inventory as inventory
 import func.chest as chest
 import func.stats as stats
 from func.classes import Player
+import func.boss as boss
 import random
 import sys
 
@@ -22,6 +23,9 @@ def random_room(player):
     
     get_user_input("1.Left\n2.Forward\n3.Right\n",[1,2,3])
 
+    if player.lvl == 10:
+        boss.boss(player) # runs final boss function
+        sys.exit() # exits game after the boss is defeated
 
     #64% combat 20% trap 10% shop 10%chest
     rand = random.random()
@@ -35,7 +39,7 @@ def random_room(player):
     else:
         shop.shop(player)
 
-def print_intro(player):
+def print_intro():
     print("DUNGEON CRAWLER\n\n")
 
     meny = get_user_input("1.Start game\n2.Exit\n",["1","2"])
@@ -48,8 +52,7 @@ def print_intro(player):
     while True:
     
         name = input("Choose your name... ")
-
-        player = Player(10, 20, 2, 5, name)
+        player = Player(10, 20, 10, 5, name)
         
         while True:
             sure = input(f"You have entered '{player.name}', is this okay? [Y/N] ")
@@ -63,10 +66,7 @@ def print_intro(player):
                 print("Invalid input")
 
 
-
-player = None
-
-print_intro(player)
+player = print_intro()
 
 while True:
     user_choice = get_user_input("1.Open door\n2.Inventory\n3.Stats\n4.Exit game\n",["1","2","3","4"])
