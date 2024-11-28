@@ -14,8 +14,6 @@ def combat(player):
         player.lvl += 1
         print(f"{player.name} level up, +1 lvl")
         resume = input("press 'enter' to continue\n")
-        print(f"{player.name} leveled up, +1 lvl")
-        input("press 'enter' to continue\n")
 
     elif player.strength == enemy.strength:
         print("Your fight ended in a tie")
