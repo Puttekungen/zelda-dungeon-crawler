@@ -18,7 +18,7 @@ def get_user_input(text, valid_input):
                 return user_input
         print("Invalid input")
 
-def random_room(player):
+def door(player):
     print("Choose where to go")
     
     get_user_input("1.Left\n2.Forward\n3.Right\n",[1,2,3])
@@ -69,11 +69,11 @@ def print_intro():
 player = print_intro()
 
 while True:
-    user_choice = get_user_input("1.Open door\n2.Inventory\n3.Stats\n4.Exit game\n",["1","2","3","4"])
+    user_choice = get_user_input("Choose what to do\n1.Open door\n2.Inventory\n3.Stats\n4.Exit game\n",["1","2","3","4"])
     print("")
     
     if user_choice == "1":
-        random_room(player)
+        door(player)
 
     elif user_choice == "2":
         inventory.inventory(player)
