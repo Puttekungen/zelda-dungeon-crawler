@@ -4,7 +4,7 @@ import func.combat as combat
 import func.inventory as inventory
 import func.chest as chest
 import func.stats as stats
-from func.classes import Player
+from func.classes import *
 import func.boss as boss
 import random
 import sys
