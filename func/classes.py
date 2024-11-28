@@ -21,5 +21,26 @@ class Player:
         self.lvl = lvl
         self.gold = gold
         self.name = name
-        self.inventory = [{"fist":10}]
-    
+        self.inventory = {"fist": {"type":"weapon","strength":100}}
+
+    inventory = {
+        "fist": {
+            "type": "weapon",
+            "strength": 100
+        },
+    }
+
+class Enemy:
+    def __init__(self, lvl):
+        if lvl >= 8:
+            self.strength = random.randint(9,14)
+            self.gold = random.randint(2,6)
+        elif plvl >= 5:
+            self.strength = random.randint(7,10)
+            gold = random.randint(2,3)
+        elif lvl >= 3:
+            self.strength = random.randint(5,8)
+            self.gold = random.randint(1,3)
+        else:
+            self.strength = random.randint(2,4)
+            self.gold = random.randint(1,2)
