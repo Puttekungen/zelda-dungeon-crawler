@@ -8,7 +8,7 @@ class Player:
         self.lvl = lvl
         self.gold = gold
         self.name = name
-        self.inventory = {"fist": {"type":"weapon","strength":100}}
+        self.inventory = []
 
 class Enemy:
 

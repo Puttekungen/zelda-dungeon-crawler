@@ -1,7 +1,7 @@
 
 def print_inventory(player):
         if player.inventory:
-            print(f"{player.name}'s Inventory:")
+            print(f"{player.name}s Inventory:")
             for i, item in enumerate(player.inventory, start=1):
                 print(f"{i}. {item}")
         else:
