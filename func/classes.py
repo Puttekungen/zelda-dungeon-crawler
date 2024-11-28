@@ -10,15 +10,8 @@ class Player:
         self.name = name
         self.inventory = {"fist": {"type":"weapon","strength":100}}
 
-    inventory = {
-        "fist": {
-            "type": "weapon",
-            "strength": 100
-        },
-    }
-
 class Enemy:
-    names=["Zombie","Skeleton"]
+    name=[["Zombie","Skeleton"]]
 
 
     def __init__(self, lvl):
@@ -35,9 +28,3 @@ class Enemy:
             self.strength = random.randint(2,4)
             self.gold = random.randint(1,2)
 
-class Item:
-    def __init__(self, name, cost):
-        self.name=name
-        self.cost=cost
-        self.strength=None
-        self.heal=None
