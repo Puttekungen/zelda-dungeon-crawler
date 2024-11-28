@@ -2,21 +2,6 @@ import random
 
 class Player:
 
-    available_items = {
-        "fist": {
-            "type": "weapon",
-            "strength": 100
-        },
-        "sword": {
-        "type": "weapon",
-        "strength": 100
-        },
-        "sword": {
-        "type": "weapon",
-        "strength": 100
-        },
-    }
-
     def __init__(self, strength, hp, lvl, gold, name): 
         self.strength = strength
         self.hp = hp
@@ -49,3 +34,10 @@ class Enemy:
         else:
             self.strength = random.randint(2,4)
             self.gold = random.randint(1,2)
+
+class Item:
+    def __init__(self, name, cost):
+        self.name=name
+        self.cost=cost
+        self.strength=None
+        self.heal=None
