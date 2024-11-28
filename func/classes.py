@@ -27,5 +27,5 @@ class Enemy:
         else:
             self.strength = random.randint(2,4)
             self.gold = random.randint(1,2)
-            self.name = random.choice(names)
+        self.name = random.choice(names)
 
