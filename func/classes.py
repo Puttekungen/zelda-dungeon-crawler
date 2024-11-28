@@ -25,11 +25,3 @@ class Player:
             "strength": 100
         },
     }
-
-class Monster:
-    all_monsters = {
-    "fist": {
-        "hp": 100,
-        "strength": 100
-    },
-}
