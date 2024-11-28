@@ -29,7 +29,7 @@ def random_room(player):
 
     #64% combat 20% trap 10% shop 10%chest
     rand = random.random()
-
+    shop()
     if rand<0.64:
         combat.combat(player)
     elif rand<0.80:
