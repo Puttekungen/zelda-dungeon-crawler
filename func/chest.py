@@ -1,15 +1,14 @@
-from classes import Player
+import func.classes as classes
 import random
 
-player = Player(10, 20, 9, 4)
+
 Sword = 5
-name = "ooga"
 
 def mimic(player):
-    if player.lvl >= 9:
+    if player.lvl >= 8:
         mimic_str = random.randint(9,14)
         gold = random.randint(2,6)
-    elif player.lvl >= 6:
+    elif player.lvl >= 5:
         mimic_str = random.randint(7,10)
         gold = random.randint(2,3)
     elif player.lvl >= 3:
@@ -21,47 +20,55 @@ def mimic(player):
           
           
     if player.strength < mimic_str:
-        print(f"The mimic won, {name} took {mimic_str} damage")
+        print(f"The mimic won, {player.name} took {mimic_str} damage")
         player.hp -= mimic_str
+        resume = input("press 'enter' to continue\n")
     elif player.strength > mimic_str:
-        print(f"{name} won, {name} found {gold} gold inside the defeated mimic") 
+        print(f"{player.name} won, {player.name} found {gold} gold inside the defeated mimic") 
         player.gold += gold
+        player.lvl += 1
+        print(f"{player.name} leveled up, +1 lvl")
+        resume = input("press 'enter' to continue\n")
     elif player.strength == mimic_str:
         print("Your fight ended in a tie")
+        resume = input("press 'enter' to continue\n")
     
 
-def chest():
+def chest(player):
     global Sword
 
     item_num = random.randint(1,5)
     if item_num >= 4: 
         str = random.randint(3,5)
-        print(f"{name} found a +{str} strength potion")
+        strength_potion = {f"name": "Strength Potion", "value": {str}}
+        player.inventory.append(strength_potion)
+        print(f"{player.name} found a strength potion +{str}")
     elif item_num >= 2:
-        health = ("Health Potion")
+        health = random.randint(3,5)
+        health_potion = {f"name": "Health Potion", "value": {health}}
+        player.inventory.append(health_potion)
+        print(f"{player.name} found a health potion +{health}")
     elif item_num >= 1:
-        if player.lvl >= 9:
+        if player.lvl >= 8:
             power = random.randint(9,14)
-        elif player.lvl >= 6:
+            print(power)
+        elif player.lvl >= 5:
             power = random.randint(7,10)
         elif player.lvl >= 3:
             power = random.randint(5,8)
         else:
             power = random.randint(2,4)
 
+        Sword -= Sword
         Sword += power
-
         print(f"Sword power {Sword}")
  
 
-def type():
+def type(player):
     typ = random.randint(1,5)
     
     if typ >= 3:
         mimic(player)
     elif typ < 3:
-        chest()
+        chest(player)
 
-type()
-print(player.hp)
-print(player.lvl)

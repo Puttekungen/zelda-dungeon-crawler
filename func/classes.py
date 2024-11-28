@@ -1,24 +1,35 @@
 class Player:
 
-    def __init__(self, strength, hp, lvl, gold): 
+    available_items = {
+        "fist": {
+            "type": "weapon",
+            "strength": 100
+        },
+        "sword": {
+        "type": "weapon",
+        "strength": 100
+        },
+    }
+
+    def __init__(self, strength, hp, lvl, gold, name): 
         self.strength = strength
         self.hp = hp
         self.lvl = lvl
         self.gold = gold
-        self.name = ""
+        self.name = name
+        self.inventory = {"fist": {"type":"weapon","strength":100}}
 
-def user_input(text, valid_input=None):
-    while True:
+    inventory = {
+        "fist": {
+            "type": "weapon",
+            "strength": 100
+        },
+    }
 
-        user_text=input(f"{text}\n")
-
-        if user_text != "":
-            if valid_input is None:
-                return user_text
-            
-            for i in range(len(valid_input)):
-                if valid_input[i].lower()==user_text:
-                    return user_text
-                
-
-player = Player(100,100,0,0)
+class Monster:
+    all_monsters = {
+    "fist": {
+        "hp": 100,
+        "strength": 100
+    },
+}

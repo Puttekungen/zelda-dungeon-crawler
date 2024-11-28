@@ -8,6 +8,7 @@ class Item:
         return f"{self.name} (STR Bonus: {self.strength_bonus}, Price: {self.price} Gold)"
 
 
+<<<<<<< HEAD
 
 class Shop:
     def __init__(self):
