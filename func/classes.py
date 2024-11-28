@@ -1,3 +1,5 @@
+import random
+
 class Player:
 
     available_items = {
