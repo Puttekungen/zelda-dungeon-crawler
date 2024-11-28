@@ -27,17 +27,17 @@ def door(player):
     if player.lvl >= 10:
         boss.boss(player) # runs final boss function
 
-    #64% combat 20% trap 10% shop 10%chest
+    #50% combat 20% trap 15% shop 15%chest
     rand = random.random()
-    combat.combat(player)
-    if rand<0.64:
+    if rand < 0.50:
         combat.combat(player)
-    elif rand<0.80:
+    elif rand < 0.70:
         trap.trap(player)
-    elif rand<0.90:
+    elif rand < 0.85:
         chest.type(player)
     else:
-        shop.Shop()
+        shopping = shop.Shop()
+        shopping.buy_item(player)
 
 def print_intro():
     print("DUNGEON CRAWLER\n\n")
@@ -53,11 +53,11 @@ def print_intro():
         player = classes.Player(10, 20, 1, 5, input("Choose your name... "))
         
         while True:
-            sure = input(f"You have entered '{player.name}', is this okay? [Y/n] ")
-            if sure.lower() == "y" or sure == "":
+            decide = input(f"You have entered '{player.name}', is this okay? [Y/n] ")
+            if decide.lower() == "y" or decide == "":
                 print("Entering game...\n")
                 return player
-            elif sure.lower() == "n":
+            elif decide.lower() == "n":
                 print("Choose again\n")
                 break
             else:
@@ -74,6 +74,8 @@ while player.hp > 0:
 
     elif user_choice == "2":
         inventory.print_inventory(player)
+        resume = input("press 'enter' to continue\n")
+
 
     elif user_choice == "3":
         stats.stats(player)

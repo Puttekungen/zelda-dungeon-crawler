@@ -1,9 +1,6 @@
 import func.classes as classes
 import random
 
-
-Sword = 5
-
 def mimic(player):
     if player.lvl >= 8:
         mimic_str = random.randint(9,14)
@@ -18,7 +15,7 @@ def mimic(player):
         mimic_str = random.randint(2,4)
         gold = random.randint(1,2)
           
-          
+    print("The chest turns out to be a mimic")      
     if player.strength < mimic_str:
         print(f"The mimic won, {player.name} took {mimic_str} damage")
         player.hp -= mimic_str
@@ -28,6 +25,7 @@ def mimic(player):
         player.gold += gold
         player.lvl += 1
         print(f"{player.name} leveled up, +1 lvl")
+        print(f"Current lvl: {player.lvl}\n")
         resume = input("press 'enter' to continue\n")
     elif player.strength == mimic_str:
         print("Your fight ended in a tie")
@@ -35,19 +33,17 @@ def mimic(player):
     
 
 def chest(player):
-    global Sword
-
     item_num = random.randint(1,5)
     if item_num >= 4: 
         str = random.randint(3,5)
-        strength_potion = {f"name": "Strength Potion", "value": {str}}
-        player.inventory.append(strength_potion)
-        print(f"{player.name} found a strength potion +{str}")
+        player.strength += str
+        print(f"Inside {player.name} finds a +{str} strength potion")
+        print(f"{player.name}s total strength is now {player.strength}!\n")
     elif item_num >= 2:
         health = random.randint(3,5)
         health_potion = {f"name": "Health Potion", "value": {health}}
-        player.inventory.append(health_potion)
-        print(f"{player.name} found a health potion +{health}")
+        
+        print(f"{player.name} found a +{health} health potion")
     elif item_num >= 1:
         if player.lvl >= 8:
             power = random.randint(9,14)
@@ -58,14 +54,12 @@ def chest(player):
             power = random.randint(5,8)
         else:
             power = random.randint(2,4)
-
-        Sword -= Sword
-        Sword += power
-        print(f"Sword power {Sword}")
  
 
 def type(player):
     typ = random.randint(1,5)
+    print(f"{player.name} finds a chest")
+    resume = input("press 'enter' to continue\n")
     
     if typ >= 3:
         mimic(player)

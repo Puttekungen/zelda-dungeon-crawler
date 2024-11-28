@@ -9,6 +9,7 @@ class Player:
         self.gold = gold
         self.name = name
         self.inventory = []
+        self.current_weapon = None
 
 class Enemy:
 
@@ -20,7 +21,7 @@ class Enemy:
             self.gold = random.randint(2,6)
         elif lvl >= 5:
             self.strength = random.randint(7,10)
-            gold = random.randint(2,3)
+            self.gold = random.randint(2,3)
         elif lvl >= 3:
             self.strength = random.randint(5,8)
             self.gold = random.randint(1,3)
