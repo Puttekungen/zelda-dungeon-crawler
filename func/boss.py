@@ -10,7 +10,7 @@ def boss(player):
     if boss_choice == "rat_king":
         print(f"When {player.name} opens the door he spots a ladder going down and decides to climb it")
         resume = input("press 'enter' to continue\n")
-        print(f"{player.name} notices that he has entered somekind of sewer")
+        print(f"{player.name} notices that he has entered some kind of sewer")
         resume = input("press 'enter' to continue\n")
 
         rat_king
