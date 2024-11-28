@@ -50,9 +50,7 @@ def print_intro():
         print("Entering the dungeon...")   
 
     while True:
-    
-        name = input("Choose your name... ")
-        player = Player(10, 20, 10, 5, name)
+        player = Player(10, 20, 10, 5, input("Choose your name... "))
         
         while True:
             sure = input(f"You have entered '{player.name}', is this okay? [Y/n] ")
@@ -68,9 +66,8 @@ def print_intro():
 
 player = print_intro()
 
-while True:
+while player.hp > 0:
     user_choice = get_user_input("Choose what to do\n1.Open door\n2.Inventory\n3.Stats\n4.Exit game\n",["1","2","3","4"])
-    print("")
     
     if user_choice == "1":
         door(player)
@@ -87,3 +84,7 @@ while True:
         if user_choice == "y":
             print("Exiting game...")
             sys.exit()
+
+if player.hp <= 0 :
+    print("GAME OVER!")
+    sys.exit()
