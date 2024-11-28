@@ -1,3 +1,14 @@
+class Item:
+    def __init__(self, name, strength_bonus, price):
+        self.name = name
+        self.strength_bonus = strength_bonus
+        self.price = price
+
+    def __str__(self):
+        return f"{self.name} (STR Bonus: {self.strength_bonus}, Price: {self.price} Gold)"
+
+
+
 class Shop:
     def __init__(self):
         self.items = [
