@@ -33,6 +33,9 @@ class Player:
     }
 
 class Enemy:
+    names=["Zombie","Skeleton"]
+
+
     def __init__(self, lvl):
         if lvl >= 8:
             self.strength = random.randint(9,14)
