@@ -4,6 +4,10 @@ import func.classes as classes
 def combat(player):
     enemy = classes.Enemy(player.lvl)
 
+    situations = ["jumps in front of you","walks towards you","peeks out behind a corner","appears"]
+
+    input(f"A {enemy.name} {random.choice(situations)}")
+
     if player.strength > enemy.strength:
         print(f"{player.name} won, {player.name} found {enemy.gold} gold in the monster remains") 
         player.gold += enemy.gold
@@ -18,16 +22,16 @@ def combat(player):
         input("press 'enter' to continue\n")
 
     elif player.strength < enemy.strength:
-        pass
+        sure = input(f"{enemy.name} is stronger than you. Do you want to use a potion? [Y/n] ")
+        while True:
+            if sure.lower() == "y":
+                print("Entering game...\n")
+                return player
+            elif sure.lower() == "n":
+                break
+            else:
+                print("Invalid input")
 
-
-
-
-
-
-# elif player.strength < enemy_strength:
-    #     if # använda potion
-
-    #     print(f"The monster won, {player.name} took {enemy_strength} damage")
-    #     player.hp -= enemy_strength
+        print(f"The monster won, {player.name} took {enemy.strength} damage")
+        player.hp -= enemy.strength
     

@@ -11,10 +11,10 @@ class Player:
         self.inventory = {"fist": {"type":"weapon","strength":100}}
 
 class Enemy:
-    name=[["Zombie","Skeleton"]]
 
 
     def __init__(self, lvl):
+        names=["zombie","skeleton","ghost","goblin","spider","orc","phantom"]
         if lvl >= 8:
             self.strength = random.randint(9,14)
             self.gold = random.randint(2,6)
@@ -27,4 +27,5 @@ class Enemy:
         else:
             self.strength = random.randint(2,4)
             self.gold = random.randint(1,2)
+            self.name = random.choice(names)
 

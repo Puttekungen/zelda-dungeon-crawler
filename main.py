@@ -4,8 +4,8 @@ import func.combat as combat
 import func.inventory as inventory
 import func.chest as chest
 import func.stats as stats
-from func.classes import Player
-from func.shop import Shop
+import func.classes as classes
+import func.shop as shop
 import func.boss as boss
 import random
 import sys
@@ -15,7 +15,7 @@ def get_user_input(text, valid_input):
         user_input=input(f"{text}\n")
             
         for i in range(len(valid_input)):
-            if str(valid_input[i]).lower()==user_input:
+            if str(valid_input[i]).lower() == user_input:
                 return user_input
         print("Invalid input")
 
@@ -50,7 +50,7 @@ def print_intro():
         print("Entering the dungeon...")   
 
     while True:
-        player = Player(10, 20, 1, 5, input("Choose your name... "))
+        player = classes.Player(10, 20, 1, 5, input("Choose your name... "))
         
         while True:
             sure = input(f"You have entered '{player.name}', is this okay? [Y/n] ")
@@ -86,5 +86,5 @@ while player.hp > 0:
             sys.exit()
 
 if player.hp <= 0 :
-    print("GAME OVER!")
+    print("YOU DIED. GAME OVER!")
     sys.exit()
