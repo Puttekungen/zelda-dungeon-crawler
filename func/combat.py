@@ -18,7 +18,7 @@ def combat(player):
         input("press 'enter' to continue\n")
 
     elif player.strength < enemy.strength:
-        pass
+        
 
 
 
@@ -30,4 +30,3 @@ def combat(player):
 
     #     print(f"The monster won, {player.name} took {enemy_strength} damage")
     #     player.hp -= enemy_strength
-    

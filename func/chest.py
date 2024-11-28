@@ -40,9 +40,9 @@ def chest(player):
     item_num = random.randint(1,5)
     if item_num >= 4: 
         str = random.randint(3,5)
-        strength_potion = {f"name": "Strength Potion", "value": {str}}
-        player.inventory.append(strength_potion)
+        player.strength += str
         print(f"{player.name} found a strength potion +{str}")
+        print(f"{player.name}s total strength is now {player.strength}")
     elif item_num >= 2:
         health = random.randint(3,5)
         health_potion = {f"name": "Health Potion", "value": {health}}

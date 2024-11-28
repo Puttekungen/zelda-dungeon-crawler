@@ -9,7 +9,7 @@ def print_inventory(player):
         print()
 
 def add_item(player, item):
-        if len(player.inventory) < 5:
+        if len(player.inventory) <= 10:
             player.inventory.append(item)
             print(f"You obtained: {item}\n")
         else:
