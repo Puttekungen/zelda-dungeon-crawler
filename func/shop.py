@@ -47,3 +47,5 @@ def main():
         shop.buy_item(choice)  # Försök att köpa det valda föremålet
 
 
+if __name__ ==  "__main__":
+    main()
