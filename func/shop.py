@@ -1,6 +1,6 @@
+
 import func.inventory as inventory
 import random  
-
 
 class Item:
     def __init__(self, name, strength_bonus, price):
@@ -10,7 +10,7 @@ class Item:
 
     def __str__(self):
         return f"{self.name} (STR Bonus: {self.strength_bonus}, Price: {self.price} Gold)"
-    
+
 class Shop:
     def __init__(self):
         self.items = [
@@ -30,6 +30,7 @@ class Shop:
         while True:
             self.display_items()
             choice = input("Choose an item to buy (1-5): ").strip()
+
 
             if choice.isdigit():
                 choice = int(choice)
