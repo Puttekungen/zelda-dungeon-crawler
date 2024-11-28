@@ -33,7 +33,7 @@ class Enemy:
         if lvl >= 8:
             self.strength = random.randint(9,14)
             self.gold = random.randint(2,6)
-        elif plvl >= 5:
+        elif lvl >= 5:
             self.strength = random.randint(7,10)
             gold = random.randint(2,3)
         elif lvl >= 3:
