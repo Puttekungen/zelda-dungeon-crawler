@@ -1,2 +1,6 @@
-def inventory():
-    
+
+
+
+inventory = []
+
+inventory.append 
