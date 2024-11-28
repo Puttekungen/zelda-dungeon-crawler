@@ -1,5 +1,5 @@
 import random
-from func.classes import *
+import func.classes as classes
 
 def combat(player):
     if player.lvl >= 8:
@@ -21,7 +21,7 @@ def combat(player):
         print(f"{player.name} won, {player.name} found {gold} gold in the monster remains") 
         player.gold += gold
         player.lvl += 1
-        print(f"{player.name} leveled up, +1 lvl")
+        print(f"{player.name} level up, +1 lvl")
         resume = input("press 'enter' to continue\n")
     elif player.strength == enemy_strength:
         print("Your fight ended in a tie")

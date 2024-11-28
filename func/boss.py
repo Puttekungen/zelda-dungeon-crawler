@@ -12,8 +12,12 @@ def boss(player):
         resume = input("press 'enter' to continue\n")
         print(f"{player.name} notices that he has entered some kind of sewer")
         resume = input("press 'enter' to continue\n")
-
-        rat_king
+        print("The tunnel leads into a large dark room")
+        resume = input("press 'enter' to continue\n")
+        print("Suddenly torches around the room light up and in the middle of the room a large creature appears")
+        resume = input("press 'enter' to continue")
+        print("It's the RAT KING")
+        
 
     if boss_choice == "skeleton":
         print("Giant skeleton")

@@ -1,10 +1,11 @@
-from func.trap import *
-from func.shop import main as shop
+import func.trap as trap
+import func.shop as shop
 import func.combat as combat
 import func.inventory as inventory
 import func.chest as chest
 import func.stats as stats
 from func.classes import Player
+from func.shop import Shop
 import func.boss as boss
 import random
 import sys
@@ -25,7 +26,6 @@ def door(player):
 
     if player.lvl >= 10:
         boss.boss(player) # runs final boss function
-     # exits game after the boss is defeated
 
     #64% combat 20% trap 10% shop 10%chest
     rand = random.random()
@@ -33,11 +33,11 @@ def door(player):
     if rand<0.64:
         combat.combat(player)
     elif rand<0.80:
-        trap(player)
+        trap.trap(player)
     elif rand<0.90:
         chest.type(player)
     else:
-        shop()
+        shop.Shop()
 
 def print_intro():
     print("DUNGEON CRAWLER\n\n")
@@ -50,7 +50,7 @@ def print_intro():
         print("Entering the dungeon...")   
 
     while True:
-        player = Player(10, 20, 10, 5, input("Choose your name... "))
+        player = Player(10, 20, 1, 5, input("Choose your name... "))
         
         while True:
             sure = input(f"You have entered '{player.name}', is this okay? [Y/n] ")
@@ -73,7 +73,7 @@ while player.hp > 0:
         door(player)
 
     elif user_choice == "2":
-        inventory.inventory(player)
+        inventory.print_inventory(player)
 
     elif user_choice == "3":
         stats.stats(player)

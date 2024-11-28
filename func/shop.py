@@ -1,51 +1,49 @@
-
+import func.inventory as inventory
 import random  
 
-class Shop:  # Definierar en klass som heter shop
-    def __init__(self):  
-        self.items = {  
-            "strength potion": 10,
-            "healing potion": 10,
-            "weapon": 25,
-        }
-        self.budget = 100 
-    def display_items(self):  # Visar tillgängliga föremål i shopen
-        print("\n--- Welcome to the shop ---")  
-        print("Here is what you can choose from:")  
-        for item, price in self.items.items():  #  genom föremål och priser i ordboken
-            print(f"{item.title()}: {price} $")  # Skriver ut varje föremål med pris
-        print(f"\nYour budget: {self.budget} $")  
 
-    def buy_item(self, choice):  # Metod som hanterar köp av ett föremål
-        choice = choice.lower()  # Denna gör så att det inte spelar roll om man skriver i low caps
-        if choice in self.items:  # Kollar om föremålet finns i shopen
-            price = self.items[choice]  # Hämtar priset för det valda föremålet
-            if self.budget >= price:  # Kontrollera om användaren har tillräckligt med pengar
-                self.budget -= price  # Minskar budgeten med föremålets pris
-                print(f"You bought {choice.title()} for {price} $!")  # Bekräftar köpet
-                print(f"Your bag feels lighter, you have {self.budget} $ left.")  # Visar ny budget
-            else:  # Om användaren inte har råd med föremålet
-                print(f"You don't have enough money to buy {choice.title()}!")  
-                print(f"It costs {price} $, but you only have {self.budget} $.")  
-        else:  
-            print(f"'{choice.title()}' is not available in the shop. Please choose a valid item.")  # Felmeddelande
+class Item:
+    def __init__(self, name, strength_bonus, price):
+        self.name = name
+        self.strength_bonus = strength_bonus
+        self.price = price
 
-def main():  
-    shop = Shop()  # Skapar ett Shop-objekt
-    while True:  # Startar en evig loop för att hålla shoppen aktiv
-        shop.display_items()  # Visar föremål och budget
-        choice = input("\nWhat would you like to buy? (type 'exit' to leave): ").strip()  
+    def __str__(self):
+        return f"{self.name} (STR Bonus: {self.strength_bonus}, Price: {self.price} Gold)"
+    
+class Shop:
+    def __init__(self):
+        self.items = [
+            Item("Small Potion", 0, 5),
+            Item("Strength Elixir", 3, 10),
+            Item("Iron Sword", 5, 20),
+            Item("Golden Shield", 4, 15),
+        ]
 
-        if not choice:  # Kontrollera om användaren inte skrev något
-            print("You didn't enter anything! Please type the name of an item or 'exit'.")  
-            continue  # Gå tillbaka till början av loopen
+    def display_items(self):
+        print("\nShop Inventory:")
+        for i, item in enumerate(self.items, start=1):
+            print(f"{i}. {item}")
+        print("5. Exit Shop\n")
 
-        if choice.lower() == "exit":  # Kontrollera om användaren vill avsluta
-            print("Thanks for visiting the shop!") 
-            break  
-        
-        shop.buy_item(choice)  # Försök att köpa det valda föremålet
+    def buy_item(self, player):
+        while True:
+            self.display_items()
+            choice = input("Choose an item to buy (1-5): ").strip()
 
-
-if __name__ ==  "__main__":
-    main()
+            if choice.isdigit():
+                choice = int(choice)
+                if 1 <= choice <= len(self.items):
+                    item = self.items[choice - 1]
+                    if player.gold >= item.price:
+                        player.gold -= item.price
+                        player.add_item(item)
+                    else:
+                        print("You don't have enough gold!\n")
+                elif choice == 5:
+                    print("Exiting the shop...\n")
+                    break
+                else:
+                    print("Invalid choice. Try again.\n")
+            else:
+                print("Invalid input. Please enter a number.\n")
