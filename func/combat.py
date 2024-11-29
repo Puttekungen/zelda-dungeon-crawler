@@ -17,7 +17,8 @@ def combat(player):
         print("Your fight ended in a tie")
         input("press 'enter' to continue\n")
 
-    elif player.strength < enemy.strength:
+    # elif player.strength < enemy.strength:
+
         
 
 

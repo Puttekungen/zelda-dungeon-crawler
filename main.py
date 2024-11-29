@@ -29,7 +29,7 @@ def door(player):
 
     #64% combat 20% trap 10% shop 10%chest
     rand = random.random()
-    shop()
+    
     if rand<0.64:
         combat.combat(player)
     elif rand<0.80:
@@ -50,7 +50,7 @@ def print_intro():
         print("Entering the dungeon...")   
 
     while True:
-        player = Player(10, 20, 1, 5, input("Choose your name... "))
+        player = Player(10, 20, 10, 5, input("Choose your name... "))
         
         while True:
             sure = input(f"You have entered '{player.name}', is this okay? [Y/n] ")

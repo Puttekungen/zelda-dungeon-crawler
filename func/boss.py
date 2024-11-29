@@ -17,10 +17,11 @@ def boss(player):
         print("Suddenly torches around the room light up and in the middle of the room a large creature appears")
         resume = input("press 'enter' to continue")
         print("It's the RAT KING")
-        
+
 
     if boss_choice == "skeleton":
         print("Giant skeleton")
 
     elif boss_choice == "god":
         print("god")
+
