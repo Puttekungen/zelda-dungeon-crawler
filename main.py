@@ -51,7 +51,7 @@ def print_intro():
         print("Entering the dungeon...")   
 
     while True:
-        player = classes.Player(10, 20, 1, 5, input("Choose your name... "))
+        player = classes.Player(10, 20, 10, 5, input("Choose your name... "))
 
         while True:
             decide = input(f"You have entered '{player.name}', is this okay? [Y/n] ")

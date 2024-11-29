@@ -65,7 +65,7 @@ def chest(player):
  
 
 def type(player):
-    typ = random.randint(1,2)
+    typ = random.randint(1,5)
     print(f"{player.name} finds a chest")
     resume = input("press 'enter' to continue\n")
     
