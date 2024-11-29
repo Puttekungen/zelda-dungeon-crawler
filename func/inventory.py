@@ -7,14 +7,16 @@ def print_inventory(player):
             print("Your inventory is empty.")
         print()
 
-def use_item(player): 
+def use_potion(player): 
+    
      
-     
-def add_item(player, item):
-        if len(player.inventory) <= 10:
+def add_to_inventory(player, item):
+        if len(player.inventory) <= 5:
             player.inventory.append(item)
             print(f"You obtained: {item}\n")
         else:
             print("Your inventory is full! You can't carry more items.\n")
+            
+
 def total_strength(player):
         return player.strength + sum(item.strength_bonus for item in player.inventory)
