@@ -28,7 +28,20 @@ def boss(player):
             print("YOU DIED")
             resume = input("press 'enter' to continue\n")
         elif player.strength == boss_health:
-            print("e")
+            print(f"{player.name} and the Rat King have the same strength")
+            resume = input("press 'enter' to continue\n")
+            print(f"{player.name} flips a coin to help him win")
+            chance_time = random.choice("Heads", "Tails")
+            choice = input("Choose 1.Heads or 2.Tails")
+            if chance_time == choice:
+                print("You guessed right")
+                print(f"{player.name} gains 1 str")
+                player.strength += 1
+                # ska göra så att när de har samma strength så ska den gå tillbaka till där den kollar om spelaren har mer eller mindre str för att kolla igen
+            elif chance_time != choice:
+                print("You got it wrong")
+                print("The Rat King gained 1 str")
+                boss_health += 1
         elif player.strength > boss_health:
             print("The dungeon has made you strong enough to make kings fall")
             resume = input("press 'enter' to continue\n")
