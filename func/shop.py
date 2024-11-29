@@ -4,7 +4,7 @@ import func.classes as classes
 import random
 
 
-#delete
+
 class Shop:
     def __init__(self):
         small = random.randint(1, 2)

@@ -21,7 +21,7 @@ def inventory(player):
         decide = get_user_input("Choose what to inspect: ", slots)
         item = player.inventory[int(decide)-1]
 
-        if item.isPotion:
+        if item.type=="potion":
             print(f"{item.name}: Healing: {item.healing}\n")
         else:
             print(f"{item.name}: Strength bonus: {item.strength_bonus}\n")
