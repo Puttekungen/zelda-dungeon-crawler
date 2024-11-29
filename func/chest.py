@@ -40,8 +40,16 @@ def chest(player):
         print(f"Inside, {player.name} finds a +{str} strength potion")
         print(f"{player.name}s total strength is now {player.strength}!\n")
     elif item_num >= 2:
+        print("helath")
         health = random.randint(3,5)
         health_potion = {f"name": "Health Potion", "value": {health}}
+        if len(player.inventory) <= 10:
+            player.inventory.append(health_potion)
+            print(f"You obtained: {health_potion}\n")
+        else:
+            print("Your inventory is full! You can't carry more items.\n")
+        health = random.randint(3,5)
+        
         
         print(f"{player.name} found a +{health} health potion")
     elif item_num >= 1:
@@ -57,7 +65,7 @@ def chest(player):
  
 
 def type(player):
-    typ = random.randint(1,5)
+    typ = random.randint(1,2)
     print(f"{player.name} finds a chest")
     resume = input("press 'enter' to continue\n")
     

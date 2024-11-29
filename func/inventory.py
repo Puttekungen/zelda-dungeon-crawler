@@ -8,6 +8,9 @@ def print_inventory(player):
             print("Your inventory is empty.")
         print()
 
+def use_item(): 
+      
+      
 def add_item(player, item):
         if len(player.inventory) <= 10:
             player.inventory.append(item)
