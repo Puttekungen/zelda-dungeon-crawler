@@ -28,13 +28,13 @@ def door(player):
         boss.boss(player) # runs final boss function
         
 
-    #50% combat 20% trap 15% shop 15%chest
+    #45% combat 20% trap 15% shop 20%chest
     rand = random.random()
-    if rand < 0.50:
+    if rand < 0.45:
         combat.combat(player)
-    elif rand < 0.70:
+    elif rand < 0.65:
         trap.trap(player)
-    elif rand < 0.85:
+    elif rand < 0.80:
         chest.type(player)
     else:
         shopping = shop.Shop()

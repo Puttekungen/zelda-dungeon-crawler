@@ -1,13 +1,12 @@
 import random
 
 class Item:
-    def __init__(self, name, type, strength_bonus, price, healing=None):
+    def __init__(self, name, type, strength_bonus=0, price=0, health_bonus=0):
         self.name = name
         self.type = type
         self.strength_bonus = strength_bonus
         self.price = price
-        if self.type=="potion":
-            self.healing = healing
+        self.health_bonus = health_bonus
 
     def __str__(self):
         return f"{self.name} (STR Bonus: {self.strength_bonus}, Price: {self.price} Gold)"

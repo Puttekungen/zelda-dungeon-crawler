@@ -12,10 +12,10 @@ class Shop:
         sword = random.randint(5, 9)
         health = random.randint(3, 6)
         self.items = [
-            classes.Item("Small Potion", "potion", small, 5),
-            classes.Item("Strength Elixir", "potion", elixir, 10),
-            classes.Item("Health Potion", "potion", health, 10),
-            classes.Item("Iron Sword", "weapon", sword, 20),
+            classes.Item("Small Potion", "potion", strength_bonus=small, price=5),
+            classes.Item("Strength Elixir", "potion", strength_bonus=elixir, price=10),
+            classes.Item("Health Potion", "potion", health_bonus=health, price=10),
+            classes.Item("Iron Sword", "weapon", strength_bonus=sword, price=20),
         ]
 
     def display_items(self):
@@ -39,12 +39,14 @@ class Shop:
                         player.gold -= item.price
                         
                         
-                        if item.name == "Strength Elixir" or "Small Potion":
+                        if item.name == "Strength Elixir" or item.name == "Small Potion":
                             player.strength += item.strength_bonus
                             print(f"{player.name}'s strength increased by {item.strength_bonus}!")
-                        else:
-                            
+                        elif item.name == "Health Potion":
                             player.add_item(item)
+                            print(f"Added {item.name} to inventory")
+
+                            
                     else:
                         print("You don't have enough gold!\n")
                         input("press 'enter' to continue")
