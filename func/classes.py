@@ -3,6 +3,7 @@ import random
 class Item:
     def __init__(self, name, type, strength_bonus, price, healing=None):
         self.name = name
+        self.type = type
         self.strength_bonus = strength_bonus
         self.price = price
         if self.type=="potion":
@@ -19,7 +20,7 @@ class Player:
         self.lvl = lvl
         self.gold = gold
         self.name = name
-        self.inventory = [Item("shield")]
+        self.inventory = [Item("Empty", "none", 0, 0)]
         self.current_weapon = None
 
 class Enemy:

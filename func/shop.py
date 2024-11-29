@@ -40,13 +40,15 @@ class Shop:
                         
                         
                         if item.name == "Strength Elixir" or "Small Potion":
-                            player.strength += item.strength
-                            print(f"{player.name}'s strength increased by {item.strength}!")
+                            player.strength += item.strength_bonus
+                            print(f"{player.name}'s strength increased by {item.strength_bonus}!")
                         else:
                             
                             player.add_item(item)
                     else:
                         print("You don't have enough gold!\n")
+                        input("press 'enter' to continue")
+
                 elif choice == 5:
                     print("Exiting the shop...\n")
                     break

@@ -9,8 +9,8 @@ def get_user_input(text, valid_input):
 
 def print_inventory(player):
     print(f"{player.name}s Inventory:")
-    for item in player.inventory:
-        print(f"{player.inventory.index(item.name)+1}.{item.name}")
+    for i, item in enumerate(player.inventory, start=1):
+        print(f"{i}. {item.name}")
 
 def inventory(player):
     if player.inventory:
@@ -24,14 +24,14 @@ def inventory(player):
         if item.type=="potion":
             print(f"{item.name}: Healing: {item.healing}\n")
         else:
-            print(f"{item.name}: Strength bonus: {item.strength_bonus}\n")
+            print(f"{item.name}: Healing: {item.strength_bonus}\n")
 
     else:
         print("Your inventory is empty.")
     input("press 'enter' to continue\n")
 
 def use_potion(player, item): 
-    player.inenvtory
+    player.inventory
      
 def add_to_inventory(player, item):
     if len(player.inventory) <= 5:

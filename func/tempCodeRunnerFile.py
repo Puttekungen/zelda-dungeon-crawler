@@ -1,1 +1,0 @@
-    # elif player.strength < enemy_strength:

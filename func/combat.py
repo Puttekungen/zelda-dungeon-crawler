@@ -20,16 +20,6 @@ def combat(player):
         input("press 'enter' to continue\n")
 
     elif player.strength < enemy.strength:
-        sure = input(f"{enemy.name} is stronger than you. Do you want to use a potion? [Y/n] ")
-        while True:
-            if sure.lower() == "y":
-                print("Entering game...\n")
-                return player
-            elif sure.lower() == "n":
-                break
-            else:
-                print("Invalid input")
-
         print(f"The monster won, {player.name} took {enemy.strength} damage")
         player.hp -= enemy.strength
         input("press 'enter' to continue\n")
