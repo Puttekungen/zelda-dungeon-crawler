@@ -4,4 +4,4 @@ def stats(player):
     print(f"STR: {player.strength}")
     print(f"LVL: {player.lvl}")
     print(f"GOLD: {player.gold}\n")
-    resume = input("press 'enter' to continue\n")
+    input("press 'enter' to continue\n")

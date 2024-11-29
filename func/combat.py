@@ -13,7 +13,7 @@ def combat(player):
         player.gold += enemy.gold
         player.lvl += 1
         print(f"{player.name} level up, +1 lvl")
-        resume = input("press 'enter' to continue\n")
+        input("press 'enter' to continue\n")
 
     elif player.strength == enemy.strength:
         print("Your fight ended in a tie")
@@ -32,4 +32,5 @@ def combat(player):
 
         print(f"The monster won, {player.name} took {enemy.strength} damage")
         player.hp -= enemy.strength
+        input("press 'enter' to continue\n")
     
