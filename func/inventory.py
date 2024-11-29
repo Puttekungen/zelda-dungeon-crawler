@@ -7,17 +7,28 @@ def get_user_input(text, valid_input):
                 return user_input
         print("Invalid input")
 
-def inventory(player):
-    if player.inventory:
-        print_inventory(player)
-    else:
-        print("Your inventory is empty.")
-    input("press 'enter' to continue\n")
-
 def print_inventory(player):
     print(f"{player.name}s Inventory:")
     for item in player.inventory:
-        print(f"{player.inventory.index(item.name)}.{item.name}")
+        print(f"{player.inventory.index(item.name)+1}.{item.name}")
+
+def inventory(player):
+    if player.inventory:
+        print_inventory(player)
+        slots = []
+        for i in range(len(player.inventory)):
+            slots.append(i+1)
+        decide = get_user_input("Choose what to inspect: ", slots)
+        item = player.inventory[int(decide)-1]
+
+        if item.isPotion:
+            print(f"{item.name}: Healing: {item.healing}\n")
+        else:
+            print(f"{item.name}: Strength bonus: {item.strength_bonus}\n")
+
+    else:
+        print("Your inventory is empty.")
+    input("press 'enter' to continue\n")
 
 def use_potion(player, item): 
     player.inenvtory
@@ -34,12 +45,13 @@ def add_to_inventory(player, item):
             if decide.lower() == "y":
                 print_inventory()
                 slots = []
-                for i in len(player.inventory):
-                    slots.append(i)
+                for i in range(len(player.inventory)):
+                    slots.append(i+1)
                 decide = get_user_input("Choose what to replace: ", slots)
-                player.inventory[int(decide)-1] = item
+                player.inventory[int(decide)] = item
                 input("press 'enter' to continue\n")
                 break
+
             elif decide.lower() == "n":
                 break
 

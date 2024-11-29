@@ -52,7 +52,7 @@ def print_intro():
 
     while True:
         player = classes.Player(10, 20, 1, 5, input("Choose your name... "))
-        
+
         while True:
             decide = input(f"You have entered '{player.name}', is this okay? [Y/n] ")
             if decide.lower() == "y" or decide == "":
@@ -74,7 +74,7 @@ while player.hp > 0:
         door(player)
 
     elif user_choice == "2":
-        inventory.print_inventory(player)
+        inventory.inventory(player)
         resume = input("press 'enter' to continue\n")
 
 
