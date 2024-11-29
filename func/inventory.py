@@ -1,14 +1,13 @@
-
 def print_inventory(player):
         if player.inventory:
             print(f"{player.name}s Inventory:")
-            for i, item in enumerate(player.inventory, start=1):
-                print(f"{i}. {item}")
+            for item in player.inventory:
+                print(f"{player.inventory.index(item.name)}.{item.name}")
         else:
             print("Your inventory is empty.")
         print()
 
-def use_item(): 
+def use_item(player): 
       
       
 def add_item(player, item):

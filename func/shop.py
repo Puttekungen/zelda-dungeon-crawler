@@ -1,18 +1,7 @@
 
 import func.inventory as inventory
+import func.classes as classes
 import random  
-
-class Item:
-    def __init__(self, name, strength_bonus, price, isPotion=False):
-        self.name = name
-        self.strength_bonus = strength_bonus
-        self.price = price
-        self.isPotion = isPotion
-
-    def __str__(self):
-        return f"{self.name} (STR Bonus: {self.strength_bonus}, Price: {self.price} Gold)"
-
-
 class Shop:
     def __init__(self):
         small = random.randint(1, 2)
@@ -20,10 +9,10 @@ class Shop:
         sword = random.randint(5, 9)
         health = random.randint(3, 6)
         self.items = [
-            Item("Small Potion", "potion", small, 5),
-            Item("Strength Elixir", "potion", elixir, 10),
-            Item("Health Potion", "potion", health, 10),
-            Item("Iron Sword", "weapon", sword, 20),
+            classes.Item("Small Potion", "potion", small, 5),
+            classes.Item("Strength Elixir", "potion", elixir, 10),
+            classes.Item("Health Potion", "potion", health, 10),
+            classes.Item("Iron Sword", "weapon", sword, 20),
         ]
 
     def display_items(self):
