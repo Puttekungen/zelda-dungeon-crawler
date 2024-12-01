@@ -33,25 +33,21 @@ def mimic(player):
     
 
 def chest(player):
-    item_num = random.randint(1,5)
+    item_num = random.randint(2,3)
     if item_num >= 4: 
-        str = random.randint(3,5)
-        player.strength += str
-        print(f"Inside, {player.name} finds a +{str} strength potion")
+        strength = random.randint(3,5)
+        player.strength += strength
+        print(f"Inside, {player.name} finds a +{strength} strength potion")
         print(f"{player.name}s total strength is now {player.strength}!\n")
     elif item_num >= 2:
-        print("helath")
         health = random.randint(3,5)
-        health_potion = {f"name": "Health Potion", "value": {health}}
+        health_potion = classes.Item("Health Potion", "potion", health_bonus=health)
         if len(player.inventory) <= 10:
             player.inventory.append(health_potion)
-            print(f"You obtained: {health_potion}\n")
+            print(f"{player.name} found a +{health} health potion")
         else:
             print("Your inventory is full! You can't carry more items.\n")
-        health = random.randint(3,5)
-        
-        
-        print(f"{player.name} found a +{health} health potion")
+            
     elif item_num >= 1:
         if player.lvl >= 8:
             power = random.randint(9,14)
@@ -65,7 +61,7 @@ def chest(player):
  
 
 def type(player):
-    typ = random.randint(1,5)
+    typ = random.randint(1,2)
     print(f"{player.name} finds a chest")
     resume = input("press 'enter' to continue\n")
     

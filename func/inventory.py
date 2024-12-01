@@ -15,23 +15,32 @@ def print_inventory(player):
 def inventory(player):
     if player.inventory:
         print_inventory(player)
-        slots = []
-        for i in range(len(player.inventory)):
-            slots.append(i+1)
+        slots = [i + 1 for i in range(len(player.inventory))]
         decide = get_user_input("Choose what to inspect: ", slots)
-        item = player.inventory[int(decide)-1]
+        item = player.inventory[int(decide) - 1]
 
-        if item.type=="potion":
-            print(f"{item.name}: Healing: {item.healing}\n")
-        else:
-            print(f"{item.name}: Healing: {item.strength_bonus}\n")
-
+        # Visa attribut för health potions
+        print(f"{item.name}: Healing: {item.health_bonus}\n")
+        decide = input("Do you want to use this potion? [Y/n]: ")
+        if decide.lower() == "y" or decide == "":
+            use_potion(player, item)
+        elif decide.lower() == "n":
+            print("Item not used")
+            
     else:
         print("Your inventory is empty.")
-    input("press 'enter' to continue\n")
+        input("Press 'enter' to continue\n")
 
-def use_potion(player, item): 
-    player.inventory
+
+
+def use_potion(player, item):
+    if item.health_bonus > 0:
+        player.hp += item.health_bonus
+        player.inventory.remove(item)
+        print(f"You used {item.name} and restored {item.health_bonus} HP!")
+        print(f"Current HP: {player.hp}\n")
+    else:
+        print("This item cannot be used as a potion.\n")
      
 def add_to_inventory(player, item):
     if len(player.inventory) <= 5:
