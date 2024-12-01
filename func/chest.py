@@ -1,4 +1,6 @@
 import func.classes as classes
+from func.weapon import *
+from func.levelup import *
 import random
 
 def mimic(player):
@@ -19,17 +21,18 @@ def mimic(player):
     if player.strength < mimic_str:
         print(f"The mimic won, {player.name} took {mimic_str} damage")
         player.hp -= mimic_str
-        resume = input("press 'enter' to continue\n")
+        input("press 'enter' to continue\n")
     elif player.strength > mimic_str:
         print(f"{player.name} won, {player.name} found {gold} gold inside the defeated mimic") 
         player.gold += gold
-        player.lvl += 1
+        level_up(player)
         print(f"{player.name} leveled up, +1 lvl")
         print(f"Current lvl: {player.lvl}\n")
-        resume = input("press 'enter' to continue\n")
+        print("Stats increased")
+        input("press 'enter' to continue\n")
     elif player.strength == mimic_str:
         print("Your fight ended in a tie")
-        resume = input("press 'enter' to continue\n")
+        input("press 'enter' to continue\n")
     
 
 def chest(player):
@@ -51,17 +54,27 @@ def chest(player):
     elif item_num >= 1:
         if player.lvl >= 8:
             power = random.randint(9,14)
-            print(power)
+            item = [classes.Item("Iron Sword", "weapon", strength_bonus=power, price=0)]
+            weapon_pickup(player, item)
         elif player.lvl >= 5:
             power = random.randint(7,10)
+            item = [classes.Item("Iron Sword", "weapon", strength_bonus=power, price=0)]
+            weapon_pickup(player, item)
         elif player.lvl >= 3:
             power = random.randint(5,8)
+            item = [classes.Item("Iron Sword", "weapon", strength_bonus=power, price=0)]
+            weapon_pickup(player, item)
         else:
             power = random.randint(2,4)
+            item = [classes.Item("Iron Sword", "weapon", strength_bonus=power, price=0)]
+            weapon_pickup(player, item)
+
+        print(f"{player.name} found a new weapon")
  
 
+
 def type(player):
-    typ = random.randint(1,5)
+    typ = random.randint(3,5)
     print(f"{player.name} finds a chest")
     input("press 'enter' to continue\n")
     

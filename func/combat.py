@@ -1,5 +1,6 @@
 import random
 import func.classes as classes
+from func.levelup import level_up
 
 def combat(player):
     enemy = classes.Enemy(player.lvl)
@@ -11,8 +12,10 @@ def combat(player):
     if player.strength > enemy.strength:
         print(f"{player.name} won, {player.name} found {enemy.gold} gold in the monster remains") 
         player.gold += enemy.gold
-        player.lvl += 1
+        level_up(player)
         print(f"{player.name} level up, +1 lvl")
+        print(f"Current lvl: {player.lvl}\n")
+        print("Stats increased")
         input("press 'enter' to continue\n")
 
     elif player.strength == enemy.strength:

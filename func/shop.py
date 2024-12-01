@@ -1,8 +1,8 @@
 
 import func.inventory as inventory
 import func.classes as classes
+from func.weapon import *
 import random
-from weapon import *
 
 
 
@@ -39,7 +39,7 @@ class Shop:
                     if item.type == "weapon":
                         if player.gold >= item.price:
                             player.gold -= item.price
-                            self.equip_weapon(player, item)
+                            weapon_pickup(player, item)
                         else:
                             print("You don't have enough gold!\n")
                             input("press 'enter' to continue")

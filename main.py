@@ -5,7 +5,6 @@ import func.inventory as inventory
 import func.chest as chest
 import func.stats as stats
 import func.classes as classes
-import func.shop as shop
 import func.boss as boss
 import random
 import sys
@@ -27,8 +26,6 @@ def door(player):
     if player.lvl >= 10:
         boss.boss(player) # runs final boss function
         
-    shopping = shop.Shop()
-    shopping.buy_item(player)
     #45% combat 20% trap 15% shop 20%chest
     rand = random.random()
     if rand < 0.45:
@@ -52,7 +49,7 @@ def print_intro():
         print("Entering the dungeon...")   
 
     while True:
-        player = classes.Player(10, 20, 1, 100, input("Choose your name... "))
+        player = classes.Player(10, 20, 1, 5, input("Choose your name... "))
 
         while True:
             decide = input(f"You have entered '{player.name}', is this okay? [Y/n] ")
@@ -76,7 +73,7 @@ while player.hp > 0:
 
     elif user_choice == "2":
         inventory.inventory(player)
-        resume = input("press 'enter' to continue\n")
+        input("press 'enter' to continue\n")
 
 
     elif user_choice == "3":
@@ -91,4 +88,6 @@ while player.hp > 0:
 
 if player.hp <= 0 :
     print("YOU DIED. GAME OVER!")
-    sys.exit()
+    input("press 'enter' to continue\n")
+    print("Returning to main menu...")    
+    print_intro()
