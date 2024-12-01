@@ -27,7 +27,8 @@ def door(player):
     if player.lvl >= 10:
         boss.boss(player) # runs final boss function
         
-    chest.type(player)
+    shopping = shop.Shop()
+    shopping.buy_item(player)
     #45% combat 20% trap 15% shop 20%chest
     rand = random.random()
     if rand < 0.45:
@@ -51,7 +52,7 @@ def print_intro():
         print("Entering the dungeon...")   
 
     while True:
-        player = classes.Player(10, 20, 1, 5, input("Choose your name... "))
+        player = classes.Player(10, 20, 1, 100, input("Choose your name... "))
 
         while True:
             decide = input(f"You have entered '{player.name}', is this okay? [Y/n] ")

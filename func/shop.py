@@ -2,11 +2,13 @@
 import func.inventory as inventory
 import func.classes as classes
 import random
+from weapon import *
 
 
 
 class Shop:
     def __init__(self):
+        global health
         small = random.randint(1, 2)
         elixir = random.randint(3, 5)
         sword = random.randint(5, 9)
@@ -34,6 +36,14 @@ class Shop:
                 if 1 <= choice <= len(self.items):
                     item = self.items[choice - 1]
 
+                    if item.type == "weapon":
+                        if player.gold >= item.price:
+                            player.gold -= item.price
+                            self.equip_weapon(player, item)
+                        else:
+                            print("You don't have enough gold!\n")
+                            input("press 'enter' to continue")
+
                     
                     if player.gold >= item.price:
                         player.gold -= item.price
@@ -43,8 +53,8 @@ class Shop:
                             player.strength += item.strength_bonus
                             print(f"{player.name}'s strength increased by {item.strength_bonus}!")
                         elif item.name == "Health Potion":
-                            player.add_item(item)
-                            print(f"Added {item.name} to inventory")
+                            player.inventory.append(item)       
+                            print(f"Added +{health} {item.name} to inventory")
 
                             
                     else:

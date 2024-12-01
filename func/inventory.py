@@ -21,10 +21,10 @@ def inventory(player):
 
         # Visa attribut för health potions
         print(f"{item.name}: Healing: {item.health_bonus}\n")
-        decide = input("Do you want to use this potion? [Y/n]: ")
-        if decide.lower() == "y" or decide == "":
+        decide = input("Do you want to use this potion? [y/N]: ")
+        if decide.lower() == "y":
             use_potion(player, item)
-        elif decide.lower() == "n":
+        elif decide.lower() == "n" or decide == "":
             print("Item not used")
             
     else:
@@ -37,7 +37,7 @@ def use_potion(player, item):
     if item.health_bonus > 0:
         player.hp += item.health_bonus
         player.inventory.remove(item)
-        print(f"You used {item.name} and restored {item.health_bonus} HP!")
+        print(f"You used {item.name} and restored {item.health_bonus} HP")
         print(f"Current HP: {player.hp}\n")
     else:
         print("This item cannot be used as a potion.\n")

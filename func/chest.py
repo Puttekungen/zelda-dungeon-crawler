@@ -33,7 +33,7 @@ def mimic(player):
     
 
 def chest(player):
-    item_num = random.randint(2,3)
+    item_num = random.randint(1,5)
     if item_num >= 4: 
         strength = random.randint(3,5)
         player.strength += strength
@@ -47,7 +47,7 @@ def chest(player):
             print(f"{player.name} found a +{health} health potion")
         else:
             print("Your inventory is full! You can't carry more items.\n")
-            
+
     elif item_num >= 1:
         if player.lvl >= 8:
             power = random.randint(9,14)
@@ -61,9 +61,9 @@ def chest(player):
  
 
 def type(player):
-    typ = random.randint(1,2)
+    typ = random.randint(1,5)
     print(f"{player.name} finds a chest")
-    resume = input("press 'enter' to continue\n")
+    input("press 'enter' to continue\n")
     
     if typ >= 3:
         mimic(player)

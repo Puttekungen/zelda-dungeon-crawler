@@ -1,12 +1,13 @@
-def equip_weapon(player, new_weapon):
-    if player.current_weapon:
-        player.strength -= player.current_weapon.strength_bonus
+def equip_weapon(self, player, new_weapon):
+        if player.current_weapon:
+            player.strength -= player.current_weapon.strength_bonus
 
+        player.current_weapon = new_weapon
+        player.strength += new_weapon.strength_bonus
+        print(f"Equipped {new_weapon.name} +{new_weapon.strength_bonus} str")
+        input("press 'enter' to continue\n")
 
-    player.current_weapon = new_weapon
-    player.strength += new_weapon.strength_bonus
-    print(f"Equipped {new_weapon.name} (+{new_weapon.strength_bonus}str)")
-
+        
 def weapon_pickup(player, new_weapon):
     print(f"{player.name} found a new weapon")
 
