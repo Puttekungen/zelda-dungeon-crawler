@@ -16,20 +16,23 @@ def inventory(player):
     if player.inventory:
         print_inventory(player)
         slots = [i + 1 for i in range(len(player.inventory))]
-        decide = get_user_input("Choose what to inspect: ", slots)
-        item = player.inventory[int(decide) - 1]
+        decide = get_user_input("Choose what to inspect: ", slots.append())
 
-        # Visa attribut för health potions
-        print(f"{item.name}: Healing: {item.health_bonus}\n")
-        decide = input("Do you want to use this potion? [y/N]: ")
-        if decide.lower() == "y":
-            use_potion(player, item)
-        elif decide.lower() == "n" or decide == "":
-            print("Item not used")
+        if decide != "":
+            item = player.inventory[int(decide) - 1]
+
+            # Visa attribut för health potions
+            print(f"{item.name}: Healing: {item.health_bonus}\n")
+            decide = input("Do you want to use this potion? [y/N]: ")
+            if decide.lower() == "y":
+                use_potion(player, item)
+            elif decide.lower() == "n" or decide == "":
+                print("Item not used")
             
     else:
         print("Your inventory is empty.")
-        input("\nPress 'enter' to continue\n")
+    
+    input("\nPress 'enter' to continue\n")
 
 
 

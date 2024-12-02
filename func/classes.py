@@ -19,7 +19,7 @@ class Player:
         self.lvl = lvl
         self.gold = gold
         self.name = name
-        self.inventory = [Item("Empty", "none", 0, 0)]
+        self.inventory = []
         self.current_weapon = None
 
 class Enemy:
