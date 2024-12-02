@@ -7,7 +7,7 @@ def combat(player):
 
     situations = ["jumps in front of you","walks towards you","peeks out behind a corner","appears"]
 
-    input(f"A {enemy.name} {random.choice(situations)}\n")
+    input(f"A(n) {enemy.name} {random.choice(situations)}\n")
 
     if player.strength > enemy.strength:
         print(f"{player.name} won, {player.name} found {enemy.gold} gold in the monster remains") 
