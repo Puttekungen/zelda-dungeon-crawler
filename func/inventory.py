@@ -29,7 +29,7 @@ def inventory(player):
             
     else:
         print("Your inventory is empty.")
-        input("Press 'enter' to continue\n")
+        input("\nPress 'enter' to continue\n")
 
 
 
@@ -46,11 +46,12 @@ def add_to_inventory(player, item):
     if len(player.inventory) <= 5:
         player.inventory.append(item)
         print(f"You obtained: {item}\n")
+        input("\nPress 'enter' to continue\n")
     else:
         print("Your inventory is full! You can't carry more items.\n")
 
         while True:
-            decide = input(f"Do you want to replace a slot? [Y/n] ")
+            decide = input(f"\nDo you want to replace a slot? [Y/n] ")
             if decide.lower() == "y":
                 print_inventory()
                 slots = []

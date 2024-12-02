@@ -73,8 +73,6 @@ while player.hp > 0:
 
     elif user_choice == "2":
         inventory.inventory(player)
-        input("press 'enter' to continue\n")
-
 
     elif user_choice == "3":
         stats.stats(player)
