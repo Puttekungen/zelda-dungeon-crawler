@@ -16,7 +16,7 @@ def inventory(player):
     if player.inventory:
         print_inventory(player)
         slots = [i + 1 for i in range(len(player.inventory))]
-        decide = get_user_input("Choose what to inspect: ", slots.append())
+        decide = get_user_input("Choose what to inspect: ", slots)
 
         if decide != "":
             item = player.inventory[int(decide) - 1]
