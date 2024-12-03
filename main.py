@@ -11,7 +11,7 @@ import sys
 
 def get_user_input(text, valid_input):
     while True:
-        user_input=input(text)
+        user_input=input(f"{text}\n")
         
         for i in range(len(valid_input)):
             if str(valid_input[i]).lower() == user_input:
