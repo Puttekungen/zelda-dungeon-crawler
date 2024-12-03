@@ -42,6 +42,8 @@ def chest(player):
         player.strength += strength
         print(f"Inside, {player.name} finds a +{strength} strength potion")
         print(f"{player.name}s total strength is now {player.strength}!\n")
+        input("press 'enter' to continue\n")
+        
     elif item_num >= 2:
         health = random.randint(3,5)
         health_potion = classes.Item("Health Potion", "potion", health_bonus=health)
@@ -74,7 +76,7 @@ def chest(player):
 
 
 def type(player):
-    typ = random.randint(3,5)
+    typ = random.randint(1,4)
     print(f"{player.name} finds a chest")
     input("press 'enter' to continue\n")
     
