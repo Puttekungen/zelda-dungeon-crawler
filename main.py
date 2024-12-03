@@ -11,8 +11,8 @@ import sys
 
 def get_user_input(text, valid_input):
     while True:
-        user_input=input(f"{text}\n")
-            
+        user_input=input(text)
+        
         for i in range(len(valid_input)):
             if str(valid_input[i]).lower() == user_input:
                 return user_input
@@ -20,7 +20,6 @@ def get_user_input(text, valid_input):
 
 def door(player):
     print("Choose where to go")
-    
     get_user_input("1.Left\n2.Forward\n3.Right\n",[1,2,3])
 
     if player.lvl >= 10:
@@ -62,30 +61,35 @@ def print_intro():
             else:
                 print("Invalid input")
 
+isExit = False
 
-player = print_intro()
+while not isExit:
 
-while player.hp > 0:
-    user_choice = get_user_input("Choose what to do\n1.Open door\n2.Inventory\n3.Stats\n4.Exit game\n",["1","2","3","4"])
-    
-    if user_choice == "1":
-        door(player)
+    player = print_intro()
 
-    elif user_choice == "2":
-        inventory.inventory(player)
+    while player.hp > 0:
+        user_choice = get_user_input("Choose what to do\n1.Open door\n2.Inventory\n3.Stats\n4.Exit game\n",["1","2","3","4"])
+        
+        if user_choice == "1":
+            door(player)
 
-    elif user_choice == "3":
-        stats.stats(player)
+        elif user_choice == "2":
+            inventory.inventory(player)
 
-    elif user_choice == "4":
-        user_choice = get_user_input("Are you sure? Y/N",["Y","N"])
+        elif user_choice == "3":
+            stats.stats(player)
 
-        if user_choice == "y":
-            print("Exiting game...")
-            sys.exit()
+        elif user_choice == "4":
+            user_choice = get_user_input("Are you sure? Y/N",["Y","N"])
 
-if player.hp <= 0 :
-    print("YOU DIED. GAME OVER!")
-    input("press 'enter' to continue\n")
-    print("Returning to main menu...")    
-    print_intro()
+            if user_choice == "y":
+                print("Exiting game...")
+                isExit = True
+                
+
+    if player.hp <= 0 :
+        print("YOU DIED. GAME OVER!\n")
+        input("press 'enter' to continue\n")
+        print("Returning to main menu...\n")    
+
+sys.exit()
