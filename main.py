@@ -61,10 +61,8 @@ def print_intro():
             else:
                 print("Invalid input")
 
-isExit = False
 
-while not isExit:
-
+while True:
     player = print_intro()
 
     while player.hp > 0:
@@ -84,12 +82,10 @@ while not isExit:
 
             if user_choice == "y":
                 print("Exiting game...")
-                isExit = True
+                sys.exit()
                 
 
     if player.hp <= 0 :
         print("YOU DIED. GAME OVER!\n")
         input("press 'enter' to continue\n")
         print("Returning to main menu...\n")    
-
-sys.exit()
