@@ -24,7 +24,7 @@ def door(player):
 
     if player.lvl >= 10:
         boss.boss(player) # runs final boss function
-        print_intro()
+        return True
         
     #45% combat 20% trap 15% shop 20%chest
     rand = random.random()
@@ -37,6 +37,8 @@ def door(player):
     else:
         shopping = shop.Shop()
         shopping.buy_item(player)
+
+    return False
 
 def print_intro():
     print("DUNGEON CRAWLER\n\n")
@@ -89,4 +91,6 @@ while True:
     if player.hp <= 0 :
         print("YOU DIED. GAME OVER!\n")
         input("press 'enter' to continue\n")
-        print("Returning to main menu...\n")    
+        print("Returning to main menu...\n")
+    elif player.lvl == 11:
+        print("he")

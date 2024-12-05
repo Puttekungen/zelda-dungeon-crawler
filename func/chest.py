@@ -5,16 +5,16 @@ import random
 
 def mimic(player):
     if player.lvl >= 8:
-        mimic_str = random.randint(9,14)
-        gold = random.randint(2,6)
+        mimic_str = random.randint(30,40)
+        gold = random.randint(8,15)
     elif player.lvl >= 5:
-        mimic_str = random.randint(7,10)
-        gold = random.randint(2,3)
+        mimic_str = random.randint(29,37)
+        gold = random.randint(5,9)
     elif player.lvl >= 3:
-        mimic_str = random.randint(5,8)
-        gold = random.randint(1,3)
+        mimic_str = random.randint(15,29)
+        gold = random.randint(2,4)
     else:
-        mimic_str = random.randint(2,4)
+        mimic_str = random.randint(9,15)
         gold = random.randint(1,2)
           
     print("The chest turns out to be a mimic")      
@@ -26,9 +26,6 @@ def mimic(player):
         print(f"{player.name} won, {player.name} found {gold} gold inside the defeated mimic") 
         player.gold += gold
         level_up(player)
-        print(f"{player.name} leveled up, +1 lvl")
-        print(f"Current lvl: {player.lvl}\n")
-        print("Stats increased")
         input("press 'enter' to continue\n")
     elif player.strength == mimic_str:
         print("Your fight ended in a tie")
@@ -38,7 +35,7 @@ def mimic(player):
 def chest(player):
     item_num = random.randint(1,5)
     if item_num >= 4: 
-        strength = random.randint(3,5)
+        strength = random.randint(3,6)
         player.strength += strength
         print(f"Inside, {player.name} finds a +{strength} strength potion")
         print(f"{player.name}s total strength is now {player.strength}!\n")
@@ -55,19 +52,19 @@ def chest(player):
 
     elif item_num >= 1:
         if player.lvl >= 8:
-            power = random.randint(9,14)
+            power = random.randint(9,17)
             item = [classes.Item("Iron Sword", "weapon", strength_bonus=power, price=0)]
             weapon_pickup(player, item)
         elif player.lvl >= 5:
-            power = random.randint(7,10)
+            power = random.randint(8,11)
             item = [classes.Item("Iron Sword", "weapon", strength_bonus=power, price=0)]
             weapon_pickup(player, item)
         elif player.lvl >= 3:
-            power = random.randint(5,8)
+            power = random.randint(6,9)
             item = [classes.Item("Iron Sword", "weapon", strength_bonus=power, price=0)]
             weapon_pickup(player, item)
         else:
-            power = random.randint(2,4)
+            power = random.randint(3,5)
             item = [classes.Item("Iron Sword", "weapon", strength_bonus=power, price=0)]
             weapon_pickup(player, item)
 

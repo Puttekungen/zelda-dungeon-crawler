@@ -13,9 +13,6 @@ def combat(player):
         print(f"{player.name} won, {player.name} found {enemy.gold} gold in the monster remains") 
         player.gold += enemy.gold
         level_up(player)
-        print(f"{player.name} level up, +1 lvl")
-        print(f"Current lvl: {player.lvl}\n")
-        print("Stats increased")
 
     elif player.strength == enemy.strength:
         print("Your fight ended in a tie")

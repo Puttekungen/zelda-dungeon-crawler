@@ -4,14 +4,14 @@ def equip_weapon( player, item):
 
         player.current_weapon = item
         player.strength += item.strength_bonus
-        print(f"Equipped {item.name} +{item.strength_bonus} str")
+        print(f"Equipped {item.name} +{item.strength_bonus} STR")
         input("press 'enter' to continue\n")
 
         
 def weapon_pickup(player, item):
     if player.current_weapon:
         while True:
-            choice = input(f"Do you want to replace your current weapon {player.current_weapon.name} +{player.current_weapon.strength_bonus}str with {item.name} +{item.strength_bonus}str? [Y/n]\n").lower()
+            choice = input(f"Do you want to replace your current weapon {player.current_weapon.name} +{player.current_weapon.strength_bonus}STR with {item.name} +{item.strength_bonus}STR? [Y/n]\n").lower()
             if choice == "y" or choice == "":
                 equip_weapon(player, item)
                 break
