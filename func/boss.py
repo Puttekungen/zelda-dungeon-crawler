@@ -33,7 +33,6 @@ def boss(player):
         while True:
             if player.strength < boss_strength:
                 print("You put everything you had into this final battle but weren't strong enough to end it")
-                i += 1
                 player.hp -= player.hp
                 input("press 'enter' to continue\n")
                 break
@@ -92,14 +91,13 @@ def boss(player):
         print("The pile of bones start shaking and then they slowly connect with each other in order to form a giant skeleton")
         input("press 'enter' to continue\n")
 
-        print("The GIANT SKELETON has appeared")
+        print(f"The GIANT SKELETON has appeared with a strength of {boss_strength}")
         input("press 'enter' to continue\n")
         
         
         while True:
             if player.strength < boss_strength:
                 print("You put everything you had into this final battle but weren't strong enough to end it")
-                i += 1
                 player.hp -= player.hp
                 input("press 'enter' to continue\n")
                 break

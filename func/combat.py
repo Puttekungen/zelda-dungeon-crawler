@@ -22,4 +22,3 @@ def combat(player): # slumpar fram en enemy str beroende på användarens lvl
         player.hp -= enemy.strength
     
     input("press 'enter' to continue\n")
-    

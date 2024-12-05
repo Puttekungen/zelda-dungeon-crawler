@@ -66,7 +66,7 @@ def print_intro(): # funktion som startar spelet och använder får välja sitt 
                 print("Invalid input")
 
 
-while True: # Loopar så att användaren får välja vad den vill göra tills dens hp blir 0 eller mindre
+while True: # Loopar så att användaren får välja vad den vill göra tills dens hp blir 0 eller mindre. När hp blir 0 så kör den print_intro funktionen igen
     player = print_intro()
 
     while player.hp > 0:

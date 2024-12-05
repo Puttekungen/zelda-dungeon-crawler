@@ -81,4 +81,3 @@ def type(player): # slumpar om det ska bli en mimic som attackerar eller en vanl
         mimic(player)
     elif typ < 3:
         chest(player)
-

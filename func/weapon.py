@@ -1,4 +1,4 @@
-def equip_weapon( player, item):
+def equip_weapon(player, item):
         if player.current_weapon:
             player.strength -= player.current_weapon.strength_bonus
 

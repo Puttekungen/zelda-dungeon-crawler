@@ -39,4 +39,3 @@ class Enemy: # de olika fienderna som kan attackera och deras styrka och hur myc
             self.strength = random.randint(10,15)
             self.gold = random.randint(2,4)
         self.name = random.choice(names)
-
