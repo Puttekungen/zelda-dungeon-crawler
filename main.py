@@ -23,8 +23,8 @@ def door(player):
     get_user_input("1.Left\n2.Forward\n3.Right\n",[1,2,3])
 
     if player.lvl >= 10:
-        boss.boss(player)
-        print_intro() # runs final boss function
+        boss.boss(player) # runs final boss function
+        print_intro()
         
     #45% combat 20% trap 15% shop 20%chest
     rand = random.random()
@@ -49,7 +49,7 @@ def print_intro():
         print("Entering the dungeon...")   
 
     while True:
-        player = classes.Player(10, 20, 11, 5, input("Choose your name... "))
+        player = classes.Player(10, 20, 1, 5, input("Choose your name... "))
 
         while True:
             decide = input(f"You have entered '{player.name}', is this okay? [Y/n] ")

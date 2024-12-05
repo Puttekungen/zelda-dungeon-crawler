@@ -140,7 +140,7 @@ def boss(player):
                 print("GAME COMPLETED!")
 
     elif boss_choice == "god":
-        boss_strength = random.randint(70,100)
+        boss_strength = random.randint(10,10)
 
         print(f"As {player.name} opens the door a increasingly bright light starts to peak through the door crack")
         input("press 'enter to continue\n")
@@ -157,7 +157,7 @@ def boss(player):
         print("The large figure stands up and presents you with a choice")
         input("press 'enter to continue\n")
 
-        defeat_or_attack = input("Lay down in defeat and die or continue to defy my will tiny human: Defeat/Attack?").lower()
+        defeat_or_attack = input("Lay down in defeat and die or continue to defy my will tiny human: [Defeat/Attack]?\n").lower()
 
         while True:
             if defeat_or_attack == "defeat":
@@ -179,7 +179,54 @@ def boss(player):
 
                 while True:
                     if yes_no == "y" or yes_no == "":
-                        print("k")
+                        print("Okay, you have made your choice, there's no going back now")
+                        input("press 'enter to continue\n")
+
+                        print(f"Opponent: 'GOD'\n Strength: {boss_strength} str")
+                        input("press 'enter to continue\n")
+
+                        while True:
+                            if player.strength < boss_strength:
+                                print("You put everything you had into this final battle but weren't strong enough to end it")
+                                print("YOU DIED")
+                                input("press 'enter' to continue\n")
+                                break
+                            elif player.strength == boss_strength:
+                                print(f"{player.name} and God have the same strength")
+                                input("press 'enter' to continue\n")
+                                print(f"{player.name} flips a coin to help him win")
+                                chance_time = random.choice(["Heads", "Tails"]).lower()
+                                choice = input("Choose:\n 1.Heads or 2.Tails\n").lower()
+                                if choice == "1":
+                                    choice = "Heads"
+                                elif choice == "2":
+                                    choice = "Tails"
+                                else:
+                                    print("Invalid choice, please choose 1 or 2.")
+                                    continue 
+                            
+                                if chance_time == choice:
+                                    print("You guessed right")
+                                    print(f"{player.name} gains 1 str")
+                                    player.strength += 1
+                                    continue
+                                elif chance_time != choice:
+                                    print("You got it wrong")
+                                    print("God gained 1 str")
+                                    boss_strength += 1
+                                    continue
+                                    
+
+                            elif player.strength > boss_strength:
+                                print("The dungeon has made you strong enough to make gods fall")
+                                input("press 'enter' to continue\n")
+                                print("Your suroundings start to become blurry and they eventually turn back into the dungeon that you were in")
+                                input("press 'enter' to continue\n")
+                                print("At the back of the room there is a door with a staircase leading up")
+                                input("press 'enter' to continue\n")
+                                print("At the top you find yourself finally outside and free from the horrors that the dungeon had to offer")
+                                input("press 'enter' to continue\n")
+                                print("GAME COMPLETED!")
 
                     elif yes_no == "n":
                         break
@@ -187,3 +234,4 @@ def boss(player):
             
             else:
                 print("Invalid input")
+                continue
