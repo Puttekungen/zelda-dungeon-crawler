@@ -2,7 +2,7 @@ import random
 import func.classes as classes
 from func.levelup import level_up
 
-def combat(player):
+def combat(player): # slumpar fram en enemy str beroende på användarens lvl
     enemy = classes.Enemy(player.lvl)
 
     situations = ["jumps in front of you","walks towards you","peeks out behind a corner","appears"]

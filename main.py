@@ -18,7 +18,8 @@ def get_user_input(text, valid_input):
                 return user_input
         print("Invalid input")
 
-def door(player):
+
+def door(player): # Funktion för när använder väljer att öppna en dörr och funktionen kollar ifall spelaren är lvl 10 för att då köra boss funktion ifall if statmenten uppfylls
     print("Choose where to go")
     get_user_input("1.Left\n2.Forward\n3.Right\n",[1,2,3])
 
@@ -40,7 +41,7 @@ def door(player):
 
     return False
 
-def print_intro():
+def print_intro(): # funktion som startar spelet och använder får välja sitt namn
     print("DUNGEON CRAWLER\n\n")
 
     meny = get_user_input("1.Start game\n2.Exit\n",["1","2"])
@@ -65,7 +66,7 @@ def print_intro():
                 print("Invalid input")
 
 
-while True:
+while True: # Loopar så att användaren får välja vad den vill göra tills dens hp blir 0 eller mindre
     player = print_intro()
 
     while player.hp > 0:

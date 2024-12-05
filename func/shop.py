@@ -52,7 +52,7 @@ class Shop:
                         if item.name == "Strength Elixir" or item.name == "Small Potion":
                             player.strength += item.strength_bonus
                             print(f"{player.name}'s strength increased by {item.strength_bonus}!")
-                        elif item.name == "Health Potion":
+                        elif item.name == "Health Potion" and player.inventory <= 5:
                             player.inventory.append(item)       
                             print(f"Added +{health} {item.name} to inventory")
 

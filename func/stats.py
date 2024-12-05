@@ -1,4 +1,4 @@
-def stats(player):
+def stats(player): # Skriver ut användarens stats
     print(f"{player.name}s Stats")
     print(f"HP: {player.hp}")
     print(f"STR: {player.strength}")

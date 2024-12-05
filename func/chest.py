@@ -32,16 +32,16 @@ def mimic(player):
         input("press 'enter' to continue\n")
     
 
-def chest(player):
+def chest(player): # Funktionen slumpar fram vilket item man ska få i kistan
     item_num = random.randint(1,5)
-    if item_num >= 4: 
+    if item_num >= 4: # den här ger användaren en str potion som används direkt och ökar deras str permanent
         strength = random.randint(3,6)
         player.strength += strength
         print(f"Inside, {player.name} finds a +{strength} strength potion")
         print(f"{player.name}s total strength is now {player.strength}!\n")
         input("press 'enter' to continue\n")
         
-    elif item_num >= 2:
+    elif item_num >= 2: # ger användern en potion som läggs till i inventoryt för att användas senare
         health = random.randint(4,6)
         health_potion = classes.Item("Health Potion", "potion", health_bonus=health)
         if len(player.inventory) <= 5:
@@ -50,7 +50,7 @@ def chest(player):
         else:
             print("Your inventory is full! You can't carry more items.\n")
 
-    elif item_num >= 1:
+    elif item_num >= 1: # ger användaren chansen att få ett nytt vapen med en str beroende på deras lvl
         if player.lvl >= 8:
             power = random.randint(8,14)
             item = [classes.Item("Iron Sword", "weapon", strength_bonus=power, price=0)]
@@ -72,7 +72,7 @@ def chest(player):
  
 
 
-def type(player):
+def type(player): # slumpar om det ska bli en mimic som attackerar eller en vanlig chest
     typ = random.randint(1,4)
     print(f"{player.name} finds a chest")
     input("press 'enter' to continue\n")
