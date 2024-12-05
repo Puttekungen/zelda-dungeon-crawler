@@ -27,16 +27,16 @@ class Enemy:
     def __init__(self, lvl):
         names=["zombie","skeleton","ghost","goblin","spider","phantom"]
         if lvl >= 8:
-            self.strength = random.randint(30,40)
-            self.gold = random.randint(8,15)
+            self.strength = random.randint(35,45)
+            self.gold = random.randint(12,18)
         elif lvl >= 5:
-            self.strength = random.randint(29,37)
-            self.gold = random.randint(5,9)
+            self.strength = random.randint(25,35)
+            self.gold = random.randint(8,12)
         elif lvl >= 3:
-            self.strength = random.randint(15,29)
-            self.gold = random.randint(2,4)
+            self.strength = random.randint(15,25)
+            self.gold = random.randint(4,6)
         else:
-            self.strength = random.randint(9,15)
-            self.gold = random.randint(1,3)
+            self.strength = random.randint(10,15)
+            self.gold = random.randint(2,4)
         self.name = random.choice(names)
 

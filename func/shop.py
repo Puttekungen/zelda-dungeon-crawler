@@ -9,10 +9,10 @@ import random
 class Shop:
     def __init__(self):
         global health
-        small = random.randint(1, 3)
-        elixir = random.randint(3, 7)
-        sword = random.randint(5, 9)
-        health = random.randint(3, 6)
+        small = random.randint(1, 2)
+        elixir = random.randint(3, 5)
+        sword = random.randint(5, 8)
+        health = random.randint(4, 6)
         self.items = [
             classes.Item("Small Potion", "potion", strength_bonus=small, price=5),
             classes.Item("Strength Elixir", "potion", strength_bonus=elixir, price=10),

@@ -42,9 +42,9 @@ def chest(player):
         input("press 'enter' to continue\n")
         
     elif item_num >= 2:
-        health = random.randint(3,5)
+        health = random.randint(4,6)
         health_potion = classes.Item("Health Potion", "potion", health_bonus=health)
-        if len(player.inventory) <= 10:
+        if len(player.inventory) <= 5:
             player.inventory.append(health_potion)
             print(f"{player.name} found a +{health} health potion")
         else:
@@ -52,21 +52,21 @@ def chest(player):
 
     elif item_num >= 1:
         if player.lvl >= 8:
-            power = random.randint(9,17)
+            power = random.randint(8,14)
             item = [classes.Item("Iron Sword", "weapon", strength_bonus=power, price=0)]
-            weapon_pickup(player, item)
+            weapon_pickup(player, item[0])
         elif player.lvl >= 5:
-            power = random.randint(8,11)
+            power = random.randint(6,10)
             item = [classes.Item("Iron Sword", "weapon", strength_bonus=power, price=0)]
-            weapon_pickup(player, item)
+            weapon_pickup(player, item[0])
         elif player.lvl >= 3:
-            power = random.randint(6,9)
+            power = random.randint(4,7)
             item = [classes.Item("Iron Sword", "weapon", strength_bonus=power, price=0)]
-            weapon_pickup(player, item)
+            weapon_pickup(player, item[0])
         else:
-            power = random.randint(3,5)
+            power = random.randint(2,5)
             item = [classes.Item("Iron Sword", "weapon", strength_bonus=power, price=0)]
-            weapon_pickup(player, item)
+            weapon_pickup(player, item[0])
 
         print(f"{player.name} found a new weapon")
  

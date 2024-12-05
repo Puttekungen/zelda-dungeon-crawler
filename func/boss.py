@@ -75,7 +75,7 @@ def boss(player):
 
 
     elif boss_choice == "skeleton":
-        boss_strength = random.randint(65,75)
+        boss_strength = random.randint(54,75)
 
         print("On the other side of the door you find a long pathway that leads to a giant door")
         input("press 'enter' to continue\n")
@@ -138,7 +138,7 @@ def boss(player):
                 sys.exit()
 
     elif boss_choice == "god":
-        boss_strength = random.randint(80,95)
+        boss_strength = random.randint(70,90)
 
         print(f"As {player.name} opens the door a increasingly bright light starts to peak through the door crack")
         input("press 'enter to continue\n")
