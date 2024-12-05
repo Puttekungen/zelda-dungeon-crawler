@@ -92,5 +92,3 @@ while True:
         print("YOU DIED. GAME OVER!\n")
         input("press 'enter' to continue\n")
         print("Returning to main menu...\n")
-    elif player.lvl == 11:
-        print("he")
