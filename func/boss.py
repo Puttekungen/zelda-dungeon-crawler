@@ -152,3 +152,38 @@ def boss(player):
         input("press 'enter to continue\n")
 
         print(f"{player.name} spots a large figure sitting on an enourmous chair")
+        input("press 'enter to continue\n")
+        
+        print("The large figure stands up and presents you with a choice")
+        input("press 'enter to continue\n")
+
+        defeat_or_attack = input("Lay down in defeat and die or continue to defy my will tiny human: Defeat/Attack?").lower()
+
+        while True:
+            if defeat_or_attack == "defeat":
+                print("The large figure accepts your choice and drains your life energy")
+                print(f"HP: {player.hp} - {player.hp}")
+                player.hp - player.hp
+                break
+            
+            elif defeat_or_attack == "attack":
+                print("Very well, I will allow you to humor me human")
+                input("press 'enter to continue\n")
+
+                print("But first let me tell you who I am")
+                input("press 'enter to continue\n")
+
+                print("I am the god that governs the world that you live in")
+                yes_no = input("Knowing that do you still wish to continue?: [Y/n]").lower()
+                input("press 'enter to continue\n")
+
+                while True:
+                    if yes_no == "y" or yes_no == "":
+                        print("k")
+
+                    elif yes_no == "n":
+                        break
+
+            
+            else:
+                print("Invalid input")
