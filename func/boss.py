@@ -9,7 +9,7 @@ def boss(player):
 
 
     if boss_choice == "rat_king":
-        boss_strength = random.randint(54,68)
+        boss_strength = random.randint(45,60)
         
         print(f"When {player.name} opens the door he spots a ladder going down and decides to climb it")
         input("press 'enter' to continue\n")
@@ -75,7 +75,7 @@ def boss(player):
 
 
     elif boss_choice == "skeleton":
-        boss_strength = random.randint(54,75)
+        boss_strength = random.randint(50,65)
 
         print("On the other side of the door you find a long pathway that leads to a giant door")
         input("press 'enter' to continue\n")
